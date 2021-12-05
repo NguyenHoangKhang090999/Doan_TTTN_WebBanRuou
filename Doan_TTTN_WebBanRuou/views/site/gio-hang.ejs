@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ruou Ngon Store</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="eCommerce HTML Template Free Download" name="keywords" />
+    <meta content="eCommerce HTML Template Free Download" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="../lib/slick/slick.css" rel="stylesheet" />
+    <link href="../lib/slick/slick-theme.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet" />
+    <link href="../scss/style2.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Top bar Start -->
+    <div class="top-bar">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+            <i class="fa fa-envelope"></i>HoangKhang1999ag@gmail.com
+          </div>
+          <div class="col-sm-6">
+            <i class="fa fa-phone-alt"></i> +0338744192
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Top bar End -->
+
+    <!-- Nav Bar Start -->
+    <div class="nav">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+          <a href="#" class="navbar-brand">MENU</a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-between"
+            id="navbarCollapse"
+          >
+            <div class="navbar-nav mr-auto">
+              <a href="/" class="nav-item nav-link">Trang Chủ</a>
+              <a href="/san-pham" class="nav-item nav-link">Sản Phẩm</a>
+              <!-- <a href="product-detail.html" class="nav-item nav-link">Product Detail</a> -->
+              <a href="/users/tai-khoan" class="nav-item nav-link"
+                >Tài khoản của bạn</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Nav Bar End -->
+
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-wrap">
+      <div class="container-fluid">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+          <li class="breadcrumb-item active">Giỏ hàng</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Cart Start -->
+    <div class="cart-page">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="cart-page-inner">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <div class="clear-cart">
+                    <button class="ClearCartBtn" onclick="clearCart()">
+                      Clear Cart
+                    </button>
+                  </div>
+                  <thead class="thead-dark">
+                    <tr>
+                      <th>Sản phẩm</th>
+                      <th>Giá</th>
+                      <th>Số lượng</th>
+                      <th>Tổng</th>
+                      <th>Xóa</th>
+                    </tr>
+                  </thead>
+                  <tbody class="align-middle" id="cart"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="cart-page-inner">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="coupon">
+                    <input type="text" placeholder="Mã giảm giá" />
+                    <button>Áp dụng</button>
+                  </div>
+                </div>
+                <div class="col-md-12 cart-sum" id="sum_cart">
+                  <!-- <div class="cart-summary">
+                    <div class="cart-content">
+                      <h1>Thống kê giỏ hàng</h1>
+                      <p>Tổng tiền sản phẩm<span>$99</span></p>
+                      <p>Phí ship<span>$1</span></p>
+                      <h2>Tổng cộng<span>$100</span></h2>
+                    </div>
+                    <div class="cart-btn">
+                      <button>Thanh Toán</button>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Cart End -->
+
+    <!-- Footer Start -->
+    <div class="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h2>Liên Hệ</h2>
+              <div class="contact-info">
+                <p><i class="fa fa-map-marker"></i>Thành phố Hồ Chí Minh</p>
+                <p><i class="fa fa-envelope"></i>HoangKhang1999ag</p>
+                <p><i class="fa fa-phone"></i>+0333 744 192</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h2>Theo Dõi Tôi</h2>
+              <div class="contact-info">
+                <div class="social">
+                  <a href=""><i class="fab fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/ybx1802"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a href="https://www.linkedin.com/in/huy-tran-57777b202/"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                  <a href="https://www.instagram.com/huy_jr18"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                  <a
+                    href="https://www.youtube.com/channel/UCctcteJFmH4Wxc8npHW9Cog"
+                    ><i class="fab fa-youtube"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h2>Thông Tin Cửa Hàng</h2>
+              <ul>
+                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="#">Chính sách bảo mật</a></li>
+                <li><a href="#">Hình thức vận chuyển</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h2>Thông Tin Mua Hàng</h2>
+              <ul>
+                <li><a href="#">Chính sách thanh toán</a></li>
+                <li><a href="#">Chính sách vận chuyển</a></li>
+                <li><a href="#">Chính sách hoàn trả</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row payment align-items-center">
+          <div class="col-md-6">
+            <div class="payment-method">
+              <h2>Nhận thanh toán bằng:</h2>
+              <img src="../img/payment-method.png" alt="Payment Method" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="payment-security">
+              <h2>Chứng chỉ bảo mật:</h2>
+              <img src="../img/godaddy.svg" alt="Payment Security" />
+              <img src="../img/norton.svg" alt="Payment Security" />
+              <img src="../img/ssl.svg" alt="Payment Security" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Footer Bottom Start -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 copyright">
+            <p>
+              Copyright &copy;
+              <a href="https:www.facebook.com/ybx1802">Ruou Ngon Store</a>. All
+              Rights Reserved
+            </p>
+          </div>
+
+          <div class="col-md-6 template-by">
+            <p>Developed By <a href="https://htmlcodex.com">Khang Nguyen</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Bottom End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/slick/slick.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </body>
+</html>
+
+<script>
+  render_cart_sum();
+  function rendercart(data, id) {
+    $(".align-middle").empty();
+
+    const divcart = document.getElementById(id);
+
+    let str = ``;
+    for (i in data) {
+      var sp = data[i];
+      if (sp.PHANTRAMGIAM != null) {
+        var discount = (sp.GIA * sp.PHANTRAMGIAM) / 100;
+        var LastPrice = sp.GIA - discount;
+      } else LastPrice = sp.GIA;
+
+      sp.sum = sp.quantity * LastPrice;
+
+      str += `     <div class="item-cart">
+                    <tr>
+                       <td>
+                        <div class="img">
+                          <a href=""
+                            ><img src="/${sp.HINHANH}" alt="Image"
+                          /></a>
+                          <p class="name" id="name">
+                            ${sp.TENDONG}
+                            </p>
+                        </div>
+                      </td>
+                      <td class="price">${LastPrice.toFixed(2)} $</td>
+                      <td>
+                        <div class="qty">
+                          <button class="btn-minus" data-id="${sp.MADONG}">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                          <input id="value" type="text" value="${
+                            sp.quantity
+                          }" />
+                          <button class="btn-plus" data-id="${sp.MADONG}">
+                            <i class="fa fa-plus"></i>
+                          </button>
+                        </div>
+                      </td>
+                      <td class="sum-price">${sp.sum.toFixed(2)} $</td>
+                      <td>
+                        <button class="delete-item" data-id="${sp.MADONG}" >
+                          <i class="fa fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    </div>`;
+    }
+    divcart.innerHTML += str;
+  }
+
+  function render_cart_sum() {
+    $(".cart-sum").empty();
+    const divsumcart = document.getElementById("sum_cart");
+
+    var cartnow = JSON.parse(localStorage.getItem("keycart"));
+    let total1 = cartnow.reduce(
+      (acc, val) =>
+        acc + ((val.GIA * (100 - val.PHANTRAMGIAM)) / 100) * val.quantity,
+      0
+    );
+
+    // total1 = total1.toFixed(2);
+    var shipping = 0;
+
+    if (total1 < 200) {
+      shipping = cartnow.length * 2;
+    }
+
+    let total2 = total1 + shipping;
+    // total2 = total2.toFixed(2);
+    let str = ``;
+    if (total1 >= 200) {
+      str += `<div class="cart-summary">
+                    <div class="cart-content">
+                      <h1>Thống kê giỏ hàng</h1>
+                      <p>Tổng tiền sản phẩm<span>${total1.toFixed(
+                        2
+                      )} $</span></p>
+                      <p>Phí ship<span>Miễn phí</span></p>
+                      <h2>Tổng cộng<span>${total2.toFixed(2)} $</span></h2>
+                    </div>
+                    <div class="cart-btn">
+                      <button onclick="check_cart_null()">Thanh toán</button>
+                      <button onclick="window.location.href = '/san-pham'">Tiếp tục mua hàng</button>
+                    </div>
+                  </div> `;
+    } else {
+      str += `<div class="cart-summary">
+                    <div class="cart-content">
+                      <h1>Thống kê giỏ hàng</h1>
+                      <p>Tổng tiền sản phẩm<span>${total1.toFixed(
+                        2
+                      )} $</span></p>
+                      <p>Phí ship<span>${shipping.toLocaleString(
+                        "en-US"
+                      )} $</span></p>
+                      <h2>Tổng cộng<span>${total2.toFixed(2)} $</span></h2>
+                    </div>
+                    <div class="cart-btn">
+                      <button onclick="check_cart_null()">Thanh toán</button>
+                      <button onclick="window.location.href = '/san-pham'">Tiếp tục mua hàng</button>
+                    </div>
+                  </div> `;
+    }
+    divsumcart.innerHTML += str;
+  }
+
+  function check_cart_null() {
+    const cartarray = JSON.parse(localStorage.getItem("keycart"));
+
+    if (cartarray.length <= 0) {
+      window.alert("Giỏ hàng rỗng!!!");
+    } else {
+      window.location.href = "/users/check-out";
+    }
+  }
+
+  $(document).on("click", ".delete-item", function () {
+    let id = "cart";
+    const item = $(this).attr("data-id");
+
+    console.log(item);
+
+    const cartarray = JSON.parse(localStorage.getItem("keycart"));
+
+    const idx = cartarray.findIndex((val) => val.MADONG === item);
+    console.log(idx);
+    if (idx == cartarray.length - 1) {
+      cartarray.pop();
+    } else cartarray.splice(idx, 1);
+
+    //chuyen danh sach item sau khi xoa thanh json
+    var jsoncart = JSON.stringify(cartarray);
+
+    // //luu vao localstorage
+    localStorage.setItem("keycart", jsoncart);
+
+    //render lai danh sach item gio hang
+    const newcart = JSON.parse(localStorage.getItem("keycart"));
+    rendercart(newcart, id);
+
+    // const id = $(this).parents("td").data("id");
+    // const idx = cart.findIndex((val) => val.MADONG === id);
+    // cart.splice(idx, 1);
+    render_cart_sum();
+  });
+
+  $(document).on("click", ".btn-minus", function () {
+    let id = "cart";
+    const item = $(this).attr("data-id");
+    const cartarray = JSON.parse(localStorage.getItem("keycart"));
+
+    const idx = cartarray.findIndex((val) => val.MADONG === item);
+    if (cartarray[idx].quantity > 1) {
+      cartarray[idx].quantity = cartarray[idx].quantity - 1;
+    }
+
+    // //chuyen danh sach item sau khi xoa thanh json
+    var jsoncart = JSON.stringify(cartarray);
+    // // //luu vao localstorage
+    localStorage.setItem("keycart", jsoncart);
+    // //render lai danh sach item gio hang
+    const newcart = JSON.parse(localStorage.getItem("keycart"));
+    rendercart(newcart, id);
+    render_cart_sum();
+  });
+
+  $(document).on("click", ".btn-plus", function () {
+    let id = "cart";
+    const item = $(this).attr("data-id");
+    const cartarray = JSON.parse(localStorage.getItem("keycart"));
+
+    const idx = cartarray.findIndex((val) => val.MADONG === item);
+    if (cartarray[idx].quantity < cartarray[idx].SOLUONGTON) {
+      cartarray[idx].quantity = cartarray[idx].quantity + 1;
+    }
+    // //chuyen danh sach item sau khi xoa thanh json
+    var jsoncart = JSON.stringify(cartarray);
+    // // //luu vao localstorage
+    localStorage.setItem("keycart", jsoncart);
+    // //render lai danh sach item gio hang
+    const newcart = JSON.parse(localStorage.getItem("keycart"));
+    rendercart(newcart, id);
+    render_cart_sum();
+  });
+
+  getitemcart();
+
+  function getitemcart() {
+    const cartarray = JSON.parse(localStorage.getItem("keycart"));
+    console.log(cartarray);
+    let id = "cart";
+    rendercart(cartarray, id);
+  }
+
+  function clearCart() {
+    let id = "cart";
+    const cartarray = JSON.parse(localStorage.getItem("keycart"));
+    cartarray.splice(0, cartarray.length);
+    var jsoncart = JSON.stringify(cartarray);
+    localStorage.setItem("keycart", jsoncart);
+    //render lai danh sach item gio hang
+    const newcart = JSON.parse(localStorage.getItem("keycart"));
+    rendercart(newcart, id);
+    render_cart_sum();
+  }
+</script>

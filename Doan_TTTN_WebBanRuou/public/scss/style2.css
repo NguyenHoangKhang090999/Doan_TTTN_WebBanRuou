@@ -1,0 +1,710 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+button {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.Liqueur-spirit {
+  background: #1a1d24;
+  padding-bottom: 100px;
+}
+
+.Liqueur-spirit .container {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+}
+
+.Liqueur-spirit .container .content {
+  padding-top: 100px;
+  margin-left: 200px;
+  width: 650px;
+}
+
+.Liqueur-spirit .container .content h1 {
+  color: white;
+  font-size: 45px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.Liqueur-spirit .container .content span {
+  color: #cebaa4;
+}
+
+.Liqueur-spirit .container .wine-list {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 10px solid #22242a;
+}
+
+.Liqueur-spirit .container .wine-list .items {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 70px;
+}
+
+.Liqueur-spirit .container .wine-list .items:hover img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.Liqueur-spirit .container .wine-list .items img {
+  margin-bottom: 30px;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.Liqueur-spirit .container .wine-list .items span {
+  color: #cebaa4;
+}
+
+.banner {
+  background: #1a1d24;
+}
+
+.banner .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1450px;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.banner .container .timer {
+  background: rgba(0, 0, 0, 0.5) url(https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/bg-countdown.jpg);
+  background-blend-mode: darken;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 800px;
+  height: 750px;
+}
+
+.banner .container .timer:hover {
+  background-blend-mode: normal;
+}
+
+.banner .container .timer .content {
+  margin-top: 350px;
+}
+
+.banner .container .timer .content .first {
+  color: white;
+  font-size: 35px;
+  padding-top: 100px;
+  font-weight: 800;
+}
+
+.banner .container .timer .content h1 {
+  color: white;
+  font-weight: 400;
+  font-size: 40px;
+}
+
+.banner .container .timer .content .count-down {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.banner .container .timer .content .count-down h1 {
+  padding: 0px 20px;
+  margin-right: 20px;
+  background: white;
+  color: black;
+}
+
+.banner .container .timer .content .count-down h1 span {
+  font-size: 15px;
+  display: inline-block;
+}
+
+.banner .container .timer .content button {
+  padding: 20px 40px;
+  color: #ff6f61;
+  border: 1px solid white;
+  cursor: pointer;
+  margin-top: 30px;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+}
+
+.banner .container .timer .content button:hover {
+  border: 1px solid #e1aa5e;
+  background: #e1aa5e;
+  border: 1px solid;
+}
+
+.banner .container .right .bottom-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.banner .container .right .bottom-right .Sale {
+  background: rgba(0, 0, 0, 0.6) url(https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/banner_15_whisky2.jpg);
+  background-position: center top;
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 500px;
+  height: 350px;
+}
+
+.banner .container .right .bottom-right .Sale:hover {
+  background-blend-mode: normal;
+}
+
+.banner .container .right .bottom-right .Sale .content {
+  margin-top: 100px;
+}
+
+.banner .container .right .bottom-right .Sale .content h1 {
+  color: white;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.banner .container .right .bottom-right .Sale .content span {
+  color: white;
+  font-size: 25px;
+}
+
+.banner .container .right .bottom-right .Sale .content button {
+  color: #ff6f61;
+  border: 1px solid white;
+  padding: 20px 40px;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+  cursor: pointer;
+}
+
+.banner .container .right .bottom-right .Sale .content button:hover {
+  border: 1px solid #e1aa5e;
+  background: #e1aa5e;
+}
+
+.banner .container .right .bottom-right .vintages {
+  background: rgba(0, 0, 0, 0.6) url(https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/banner_15_whisky3.jpg);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  background-size: cover;
+  width: 500px;
+  height: 350px;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+}
+
+.banner .container .right .bottom-right .vintages:hover {
+  background-blend-mode: normal;
+}
+
+.banner .container .right .bottom-right .vintages .content {
+  margin-top: 100px;
+}
+
+.banner .container .right .bottom-right .vintages .content h1 {
+  color: white;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.banner .container .right .bottom-right .vintages .content span {
+  font-size: 25px;
+  color: white;
+}
+
+.banner .container .right .bottom-right .vintages .content button {
+  border: 1px solid white;
+  color: #ff6f61;
+  padding: 20px 40px;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+  cursor: pointer;
+}
+
+.banner .container .right .bottom-right .vintages .content button:hover {
+  border: 1px solid #e1aa5e;
+  background: #e1aa5e;
+}
+
+.banner .container .top-right {
+  width: 1000px;
+  height: 400px;
+  background: rgba(0, 0, 0, 0.6) url(https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/banner_15_whisky.jpg);
+  background-blend-mode: darken;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner .container .top-right:hover {
+  background-blend-mode: normal;
+}
+
+.banner .container .top-right .content h1 {
+  padding-top: 150px;
+  color: white;
+}
+
+.banner .container .top-right .content span {
+  color: white;
+  margin-top: 20px;
+}
+
+.banner .container .top-right .content button {
+  margin-top: 20px;
+  color: #ff6f61;
+  padding: 20px 30px;
+  font-size: 18px;
+  border: 1px solid white;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+  cursor: pointer;
+}
+
+.banner .container .top-right .content button:hover {
+  border: 1px solid #e1aa5e;
+  background: #e1aa5e;
+}
+
+.featured-product {
+  background: #1a1d24 !important;
+}
+
+.recent-product {
+  background: #1a1d24 !important;
+}
+
+.footer {
+  padding-top: 150px;
+  background: #1a1d24 !important;
+}
+
+.footer h2 {
+  color: #ffffff;
+}
+
+.footer p {
+  color: #ffffff;
+}
+
+.footer .footer-widget ul li a {
+  color: #ffffff;
+}
+
+.footer .social a {
+  color: #ffffff;
+}
+
+.feature {
+  background: #1a1d24 !important;
+}
+
+#main {
+  background: #1a1d24 !important;
+}
+
+body {
+  background: #1a1d24 !important;
+}
+
+.bottom-bar {
+  background: #1a1d24 !important;
+}
+
+.header {
+  padding-bottom: 30px;
+  padding-top: 20px;
+}
+
+.header .container {
+  background: #1a1d24;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header .container .logo img {
+  width: 150px;
+  height: 40px;
+}
+
+.header .container .center-bar nav > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header .container .center-bar nav > ul > li {
+  position: relative;
+}
+
+.header .container .center-bar nav > ul > li:hover .home-dropdown {
+  height: 650px;
+}
+
+.header .container .center-bar nav > ul > li:hover .home-dropdown .bar > ul {
+  display: block;
+}
+
+.header .container .center-bar nav > ul > li:hover .home-dropdown .picture img {
+  height: 100%;
+  width: 100%;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.header .container .center-bar nav > ul > li:hover .home-dropdown .picture .content {
+  display: block;
+}
+
+.header .container .center-bar nav > ul > li .home-dropdown {
+  width: 800px;
+  height: 0px;
+  background: white;
+  position: absolute;
+  top: 60px;
+  z-index: 10;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+}
+
+.header .container .center-bar nav > ul > li .home-dropdown .bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header .container .center-bar nav > ul > li .home-dropdown .bar > ul {
+  padding: 35px;
+  display: none;
+}
+
+.header .container .center-bar nav > ul > li .home-dropdown .bar > ul > li {
+  margin-top: 20px;
+}
+
+.header .container .center-bar nav > ul > li .home-dropdown .bar > ul > li a {
+  position: relative;
+  color: #333;
+}
+
+.header .container .center-bar nav > ul > li .home-dropdown .bar > ul > li a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background: #e1aa5e;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.header .container .center-bar nav > ul > li .home-dropdown .bar > ul > li a:hover {
+  color: #e1aa5e;
+}
+
+.header .container .center-bar nav > ul > li .home-dropdown .bar > ul > li a:hover::before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.header .container .center-bar nav > ul > li .home-dropdown .picture {
+  margin-left: 5px;
+}
+
+.header .container .center-bar nav > ul > li .home-dropdown .picture img {
+  height: 0%;
+  width: 0%;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.header .container .center-bar nav > ul > li .home-dropdown .picture .content {
+  position: absolute;
+  display: none;
+  bottom: 30px;
+  left: 50px;
+}
+
+.header .container .center-bar nav > ul > li .home-dropdown .picture .content h1 {
+  margin-bottom: 20px;
+}
+
+.header .container .center-bar nav > ul > li .home-dropdown .picture .content span a {
+  color: grey;
+  padding-bottom: 5px;
+  border-bottom: 1px solid grey;
+}
+
+.header .container .center-bar nav > ul > li > a {
+  color: #cebaa4;
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  position: relative;
+}
+
+.header .container .center-bar nav > ul > li > a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background: #e1aa5e;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.header .container .center-bar nav > ul > li > a:hover {
+  color: #e1aa5e;
+}
+
+.header .container .center-bar nav > ul > li > a:hover::before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.types {
+  padding-bottom: 100px;
+}
+
+.types .container {
+  max-width: 1540px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+}
+
+.types .container .content {
+  position: absolute;
+  bottom: 50px;
+  padding-left: 30px;
+}
+
+.types .container .content h1 {
+  color: white;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.types .container .content span {
+  color: white;
+  font-size: 20px;
+}
+
+.types .container img {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+
+.types .container img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-filter: grayscale(0%);
+}
+
+.types .container .Liquor {
+  width: 25%;
+  overflow: hidden;
+}
+
+.types .container .Wine {
+  width: 25%;
+  overflow: hidden;
+}
+
+.types .container .Beer {
+  width: 25%;
+  overflow: hidden;
+}
+
+.types .container .Accessories {
+  width: 25%;
+  overflow: hidden;
+}
+
+.user a {
+  color: #cebaa4 !important;
+  background: #1a1d24;
+  border: 1 pixel solid #cebaa4;
+}
+
+.nav {
+  background: #1a1d24 !important;
+}
+
+.pagination .number-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.product-content .action button {
+  color: #ff6f61;
+  background: #ffffff;
+  border: 1px solid #cebaa4;
+  padding: 5px 8px;
+  font-size: 18px;
+  border-radius: 4px;
+  font-weight: 400;
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.product-content .action button:hover {
+  color: #ffffff;
+  background: #ff6f61;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.product-content .action button:focus {
+  color: #ffffff;
+  background: #ff6f61;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.product-content .action button:active {
+  color: #ffffff;
+  background: #ff6f61;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.checkout-inner .checkout-sum .checkout-content h1 {
+  font-size: 28px;
+  font-style: normal;
+}
+
+.checkout-inner .checkout-sum .checkout-content p {
+  font-size: 18px;
+}
+
+.checkout-inner .checkout-sum .checkout-content h2 {
+  font-size: 28px;
+  font-style: normal;
+}
+
+.clear-cart .ClearCartBtn {
+  margin-left: 720px;
+  padding: 5px 5px;
+  margin-right: 25px;
+  color: #ffffff;
+  background: #ff6f61;
+  border: 1px solid #ff6f61;
+  border-radius: 2px;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  margin-bottom: 20px;
+}
+
+.checkout-payment .checkout-btn button {
+  color: #ff6f61 !important;
+  background: #ffffff !important;
+  border: 1px solid #ff6f61 !important;
+}
+
+.checkout-payment .checkout-btn button:hover {
+  background: #ff6f61 !important;
+}
+
+.checkout-payment .checkout-btn button:hover p {
+  color: #ffffff !important;
+}
+
+.checkout-payment .checkout-btn p {
+  color: #ff6f61;
+}
+
+.checkout-info .btn-checkout {
+  padding: 10px 30px;
+  color: #ffffff;
+  background: #ff6f61;
+  border-radius: 5px;
+}
+
+.tab-pane .checkbox-orders {
+  padding-left: 200px;
+}
+
+.tab-pane .checkbox-orders input {
+  width: 15px;
+}
+
+.tab-pane .checkbox-orders label {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  margin-right: 45px;
+}
+
+.status-order-count {
+  padding-top: 30px;
+}
+
+.input-sex {
+  width: 15px;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  margin-right: 10px;
+}
+/*# sourceMappingURL=style2.css.map */

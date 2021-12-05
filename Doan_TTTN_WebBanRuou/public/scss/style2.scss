@@ -1,0 +1,653 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+button {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.Liqueur-spirit {
+  background: $e-global-color-primary;
+  padding-bottom: 100px;
+  .container {
+    justify-content: space-between;
+    text-align: center;
+    .content {
+      padding-top: 100px;
+      margin-left: 200px;
+      width: 650px;
+      h1 {
+        color: white;
+        font-size: 45px;
+        font-weight: 400;
+        margin-bottom: 30px;
+      }
+
+      span {
+        color: #cebaa4;
+      }
+    }
+
+    .wine-list {
+      margin-top: 50px;
+      display: flex;
+      border: 10px solid #22242a;
+      .items {
+        align-items: center;
+        padding: 70px;
+        &:hover {
+          img {
+            transform: scale(1.2);
+          }
+        }
+        img {
+          margin-bottom: 30px;
+          transition: all 0.4s;
+        }
+        span {
+          color: #cebaa4;
+        }
+      }
+    }
+  }
+}
+
+.banner {
+  background: $e-global-color-primary;
+  .container {
+    display: flex;
+    max-width: 1450px;
+    text-align: center;
+    align-items: center;
+    .timer {
+      background: rgba(0, 0, 0, 0.5)
+        url(https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/bg-countdown.jpg);
+      background-blend-mode: darken;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 800px;
+      height: 750px;
+      &:hover {
+        background-blend-mode: normal;
+      }
+
+      .content {
+        margin-top: 350px;
+        .first {
+          color: white;
+          font-size: 35px;
+          padding-top: 100px;
+          font-weight: 800;
+        }
+
+        h1 {
+          color: white;
+          font-weight: 400;
+          font-size: 40px;
+        }
+
+        .count-down {
+          display: flex;
+          margin-left: 50px;
+          margin-top: 50px;
+          h1 {
+            padding: 0px 20px;
+            margin-right: 20px;
+            background: white;
+            color: black;
+            span {
+              font-size: 15px;
+              display: inline-block;
+            }
+          }
+        }
+
+        button {
+          padding: 20px 40px;
+          color: #ff6f61;
+          border: 1px solid white;
+          cursor: pointer;
+          margin-top: 30px;
+          transition: all 0.6s;
+          &:hover {
+            border: 1px solid $hover-underline;
+            background: $hover-underline;
+            border: 1px solid;
+          }
+        }
+      }
+    }
+    .right {
+      .bottom-right {
+        display: flex;
+
+        .Sale {
+          background: rgba(0, 0, 0, 0.6)
+            url(https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/banner_15_whisky2.jpg);
+          background-position: center top;
+          background-blend-mode: darken;
+          background-repeat: no-repeat;
+          background-size: cover;
+          width: 500px;
+          height: 350px;
+
+          &:hover {
+            background-blend-mode: normal;
+          }
+          .content {
+            margin-top: 100px;
+            h1 {
+              color: white;
+              font-size: 40px;
+              margin-bottom: 20px;
+            }
+            span {
+              color: white;
+              font-size: 25px;
+            }
+            button {
+              color: #ff6f61;
+              border: 1px solid white;
+              padding: 20px 40px;
+              transition: all 0.6s;
+              cursor: pointer;
+              &:hover {
+                border: 1px solid $hover-underline;
+                background: $hover-underline;
+              }
+            }
+          }
+        }
+
+        .vintages {
+          background: rgba(0, 0, 0, 0.6)
+            url(https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/banner_15_whisky3.jpg);
+          background-position: center top;
+          background-repeat: no-repeat;
+          background-blend-mode: darken;
+          background-size: cover;
+          width: 500px;
+          height: 350px;
+          transition: all 0.6s;
+          &:hover {
+            background-blend-mode: normal;
+          }
+
+          .content {
+            margin-top: 100px;
+            h1 {
+              color: white;
+              font-size: 40px;
+              margin-bottom: 20px;
+            }
+
+            span {
+              font-size: 25px;
+              color: white;
+            }
+
+            button {
+              border: 1px solid white;
+              color: #ff6f61;
+              padding: 20px 40px;
+              transition: all 0.6s;
+              cursor: pointer;
+              &:hover {
+                border: 1px solid $hover-underline;
+                background: $hover-underline;
+              }
+            }
+          }
+        }
+      }
+    }
+    .top-right {
+      width: 1000px;
+      height: 400px;
+      background: rgba(0, 0, 0, 0.6)
+        url(https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/banner_15_whisky.jpg);
+      background-blend-mode: darken;
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      &:hover {
+        background-blend-mode: normal;
+      }
+      .content {
+        h1 {
+          padding-top: 150px;
+          color: white;
+        }
+
+        span {
+          color: white;
+          margin-top: 20px;
+        }
+
+        button {
+          margin-top: 20px;
+          color: #ff6f61;
+          padding: 20px 30px;
+          font-size: 18px;
+          border: 1px solid white;
+          transition: all 0.6s;
+          cursor: pointer;
+          &:hover {
+            border: 1px solid $hover-underline;
+            background: $hover-underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+.featured-product {
+  background: #1a1d24 !important;
+}
+
+.recent-product {
+  background: #1a1d24 !important;
+}
+
+.footer {
+  padding-top: 150px;
+  background: #1a1d24 !important;
+  h2 {
+    color: #ffffff;
+  }
+  p {
+    color: #ffffff;
+  }
+  .footer-widget {
+    ul {
+      li {
+        a {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  .social {
+    a {
+      color: #ffffff;
+    }
+  }
+}
+
+.feature {
+  background: #1a1d24 !important;
+}
+
+#main {
+  background: #1a1d24 !important;
+}
+
+body {
+  background: #1a1d24 !important;
+}
+
+.bottom-bar {
+  background: #1a1d24 !important;
+}
+
+.header {
+  padding-bottom: 30px;
+  padding-top: 20px;
+
+  .container {
+    background: $e-global-color-primary;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    .logo {
+      img {
+        width: 150px;
+        height: 40px;
+      }
+    }
+
+    .center-bar {
+      nav {
+        > ul {
+          display: flex;
+
+          > li {
+            &:hover {
+              .home-dropdown {
+                height: 650px;
+                .bar {
+                  > ul {
+                    display: block;
+                  }
+                }
+                .picture {
+                  img {
+                    height: 100%;
+                    width: 100%;
+                    transition: all 0.4s;
+                  }
+
+                  .content {
+                    display: block;
+                  }
+                }
+              }
+            }
+            position: relative;
+
+            .home-dropdown {
+              width: 800px;
+              height: 0px;
+              background: white;
+              position: absolute;
+              top: 60px;
+              z-index: 10;
+              transition: all 0.6s;
+              .bar {
+                display: flex;
+                > ul {
+                  padding: 35px;
+                  display: none;
+                  > li {
+                    margin-top: 20px;
+                    a {
+                      position: relative;
+                      color: #333;
+                      &::before {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 1px;
+                        bottom: 0;
+                        left: 0;
+                        background: $hover-underline;
+                        visibility: hidden;
+                        -webkit-transform: scaleX(0);
+                        transform: scaleX(0);
+                        -webkit-transition: all 0.3s ease-in-out 0s;
+                        transition: all 0.4s ease-in-out 0s;
+                      }
+                      &:hover {
+                        color: $hover-underline;
+                        &::before {
+                          visibility: visible;
+                          -webkit-transform: scaleX(1);
+                          transform: scaleX(1);
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              .picture {
+                margin-left: 5px;
+                img {
+                  height: 0%;
+                  width: 0%;
+                  transition: all 0.4s;
+                }
+                .content {
+                  position: absolute;
+                  display: none;
+                  bottom: 30px;
+                  left: 50px;
+
+                  h1 {
+                    margin-bottom: 20px;
+                  }
+                  span {
+                    a {
+                      color: grey;
+                      padding-bottom: 5px;
+                      border-bottom: 1px solid grey;
+                    }
+                  }
+                }
+              }
+            }
+            > a {
+              color: $e-global-color-710de446;
+              margin-right: 20px;
+              font-size: 18px;
+              font-weight: 500;
+              transition: all 0.4s;
+              position: relative;
+
+              &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                bottom: 0;
+                left: 0;
+                background: $hover-underline;
+                visibility: hidden;
+                -webkit-transform: scaleX(0);
+                transform: scaleX(0);
+                -webkit-transition: all 0.3s ease-in-out 0s;
+                transition: all 0.4s ease-in-out 0s;
+              }
+              &:hover {
+                color: $hover-underline;
+                &::before {
+                  visibility: visible;
+                  -webkit-transform: scaleX(1);
+                  transform: scaleX(1);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.types {
+  padding-bottom: 100px;
+  .container {
+    max-width: 1540px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    .content {
+      position: absolute;
+      bottom: 50px;
+      padding-left: 30px;
+
+      h1 {
+        color: white;
+        font-size: 40px;
+        font-weight: 500;
+      }
+      span {
+        color: white;
+        font-size: 20px;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      transition: all 0.8s;
+      filter: grayscale(100%);
+      -webkit-filter: grayscale(100%);
+
+      &:hover {
+        transform: scale(1.1);
+        -webkit-filter: grayscale(0%);
+      }
+    }
+
+    .Liquor {
+      width: 25%;
+      overflow: hidden;
+    }
+    .Wine {
+      width: 25%;
+      overflow: hidden;
+    }
+    .Beer {
+      width: 25%;
+      overflow: hidden;
+    }
+
+    .Accessories {
+      width: 25%;
+      overflow: hidden;
+    }
+  }
+}
+
+.user {
+  a {
+    color: #cebaa4 !important;
+    background: $e-global-color-primary;
+    border: 1 pixel solid #cebaa4;
+  }
+}
+
+.nav {
+  background: $e-global-color-primary !important;
+}
+
+.pagination {
+  .number-page {
+    display: flex;
+  }
+}
+
+.product-content {
+  .action {
+    button {
+      color: #ff6f61;
+      background: #ffffff;
+      border: 1px solid #cebaa4;
+      padding: 5px 8px;
+      font-size: 18px;
+      border-radius: 4px;
+      font-weight: 400;
+      transform: translateY(3px);
+      transition: all 0.4s;
+      &:hover {
+        color: #ffffff;
+        background: #ff6f61;
+        box-shadow: none;
+      }
+      &:focus {
+        color: #ffffff;
+        background: #ff6f61;
+        box-shadow: none;
+      }
+      &:active {
+        color: #ffffff;
+        background: #ff6f61;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.checkout-inner {
+  .checkout-sum {
+    .checkout-content {
+      h1 {
+        font-size: 28px;
+        font-style: normal;
+      }
+      p {
+        font-size: 18px;
+      }
+
+      h2 {
+        font-size: 28px;
+        font-style: normal;
+      }
+    }
+  }
+}
+
+.clear-cart {
+  .ClearCartBtn {
+    margin-left: 720px;
+    padding: 5px 5px;
+    margin-right: 25px;
+    color: #ffffff;
+    background: #ff6f61;
+    border: 1px solid #ff6f61;
+    border-radius: 2px;
+    transition: all 0.4s;
+    margin-bottom: 20px;
+  }
+}
+.checkout-payment {
+  .checkout-btn {
+    button {
+      color: #ff6f61 !important;
+      background: #ffffff !important;
+      border: 1px solid #ff6f61 !important;
+      &:hover {
+        background: #ff6f61 !important;
+        p {
+          color: #ffffff !important;
+        }
+      }
+    }
+    p {
+      color: #ff6f61;
+    }
+  }
+}
+
+.checkout-info {
+  .btn-checkout {
+    padding: 10px 30px;
+    color: #ffffff;
+    background: #ff6f61;
+    border-radius: 5px;
+  }
+}
+
+.tab-pane {
+  .checkbox-orders {
+    padding-left: 200px;
+    input {
+      width: 15px;
+    }
+    label {
+      transform: translateY(-10px);
+      margin-right: 45px;
+    }
+  }
+}
+
+.status-order-count {
+  padding-top: 30px;
+}
+
+.input-sex {
+  width: 15px;
+  transform: translateY(10px);
+  margin-right: 10px;
+}

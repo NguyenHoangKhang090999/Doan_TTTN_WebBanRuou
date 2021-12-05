@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ruou Ngon Store-Admin</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="eCommerce HTML Template Free Download" name="keywords" />
+    <meta content="eCommerce HTML Template Free Download" name="description" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="../lib/slick/slick.css" rel="stylesheet" />
+    <link href="../lib/slick/slick-theme.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet" />
+    <link href="../scss/style2.css" rel="stylesheet" />
+    <link href="../css/paging.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Top bar Start -->
+    <div class="top-bar">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+            <i class="fa fa-users-cog"></i> Trang quản trị
+          </div>
+          <div class="col-sm-6">
+            <i class=""></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Top bar End -->
+
+    <!-- Nav Bar Start -->
+    <div class="nav">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+          <a href="#" class="navbar-brand">MENU</a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-between"
+            id="navbarCollapse"
+          >
+            <div class="navbar-nav mr-auto">
+              
+            <div class="navbar-nav ml-auto">
+              <div class="nav-item dropdown">
+                <div class="dropdown-menu">
+                  <a href="/users/dang-xuat" class="dropdown-item">Đăng xuất</a>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Nav Bar End -->
+
+    
+
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-wrap">
+      <div class="container-fluid">
+        <ul class="breadcrumb">
+          <!-- <li class="breadcrumb-item"><a href="#">Trang chủ</a></li> -->
+          <li class="breadcrumb-item active">Quản trị</li>
+          <li class="breadcrumb-item active">Admin <%=user.ho%><%=user.ten%></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- My Account Start -->
+    <!-- My Account Start -->
+    <div class="my-account">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            <div
+              class="nav flex-column nav-pills"
+              role="tablist"
+              aria-orientation="vertical"
+            >
+              <a
+                class="nav-link"
+                id="address-nav"
+                data-toggle="pill"
+                href="#nhacungcap"
+                role="tab"
+                ><i class="fa fa-user-tie"></i>Nhà cung cấp</a
+              >
+              <a
+              class="nav-link"
+              id="payment-nav"
+              data-toggle="pill"
+              href="#catalog"
+              role="tab"
+              ><i class="fa fa-credit-card"></i>Loại sản phẩm</a
+            >
+            <a
+              class="nav-link"
+              id="payment-nav"
+              data-toggle="pill"
+              href="#thuong-hieu"
+              role="tab"
+              ><i class="fa fa-credit-card"></i>Thương hiệu</a
+            >
+        
+              <a
+                class="nav-link"
+                id="payment-nav"
+                data-toggle="pill"
+                href="#product"
+                role="tab"
+                ><i class="fa fa-credit-card"></i>Sản phẩm</a
+                >
+          
+            
+              <a
+              class="nav-link"
+              id="orders-nav"
+              data-toggle="pill"
+              href="#orders-tab"
+              role="tab"
+              ><i class="fa fa-shopping-bag"></i>Đơn Hàng</a
+            >
+            <a
+              class="nav-link"
+              id="orders-nav"
+              data-toggle="pill"
+              href="#khuyen-mai"
+              role="tab"
+              ><i class="fa fa-percentage"></i>khuyến mãi</a
+            >
+            <a
+              class="nav-link"
+              id="orders-nav"
+              data-toggle="pill"
+              href="#sp-khuyen-mai"
+              role="tab"
+              ><i class="fa fa-percentage"></i>Sản phẩm khuyến mãi</a
+            >
+            <a
+            class="nav-link"
+            id="orders-nav"
+            data-toggle="pill"
+            href="#thong-ke"
+            role="tab"
+            ><i class="fa fa-chart-bar"></i>Thống kê</a
+          >
+              <a
+                class="nav-link"
+                id="account-nav"
+                data-toggle="pill"
+                href="#khach-hang"
+                role="tab"
+                ><i class="fa fa-user"></i>Khách hàng</a
+              >
+              <a
+                class="nav-link"
+                id="account-nav"
+                data-toggle="pill"
+                href="#nhan-vien"
+                role="tab"
+                ><i class="fa fa-user"></i>Nhân viên</a
+              >
+              <!-- <a
+                class="nav-link"
+                id="account-nav"
+                data-toggle="pill"
+                href="#nhan-vien"
+                role="tab"
+                ><i class="fas fa-database"></i>Backup & Restore</a
+              > -->
+              <a
+                class="nav-link"
+                id="account-nav"
+                href="http://localhost:3000/quan-tri/import_product"
+                ><i class="fas fa-file-import"></i>Nhập hàng</a
+              >
+              <a
+                class="nav-link"
+                id="account-nav"
+                data-toggle="pill"
+                href="#report-pdf"
+                role="tab"
+                ><i class="fas fa-file-pdf"></i>Report</a
+              >
+              
+              <a class="nav-link" href="/users/dang-xuat"
+                ><i class="fa fa-sign-out-alt"></i>Đăng Xuất</a
+              >
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="tab-content">
+              <div
+                class="tab-pane fade show active"
+                id="dashboard-tab"
+                role="tabpanel"
+                aria-labelledby="dashboard-nav"
+              >  
+              </div>
+
+              <div
+              class="tab-pane fade doanh-thu"
+              id="thong-ke"
+              role="tabpanel"
+              aria-labelledby="orders-nav"
+            >
+            
+             <div class="container mt-3" >
+               <div class="top" style="display: flex;">
+                <div class="all-orders" style="background: #ff6f61; width: 240px;padding: 20px 30px;border-radius: 10px;">
+                  <p style="color:blanchedalmond; font-size: 20px" id="count-order">Tổng số đơn hàng</p>
+                </div>
+                <div class="revenu" style="background: #ff6f61; width: 260px;padding: 20px 30px;margin-left: 100px;border-radius: 10px;">
+                  <p id="sum-revenu" style="color:blanchedalmond; font-size: 20px"></p>
+                </div>
+
+                <div class="chosen">
+                  <p style="margin-left:100px;font-weight: 600">Lọc doanh thu</p>
+                  <div id="result">
+                 
+                  </div>
+                  <select name="statistical" id="" class="combo" style="height:25px;width:150px;margin-left: 100px;" onchange="validateSelectBox(this)">
+                    <option value="Hôm nay">Hôm nay</option>
+                    <option value="7 ngày">7 Ngày</option>
+                    <option value="30 ngày" >30 Ngày</option>
+                    <option value="1 năm">Cả năm</option>
+                  </select>
+                </div>
+                
+               </div>
+
+               <div class="status-order-count">
+                 <p style="color: blue;" id="count-order-complete">Đã giao: </p>
+                 <p style="color: red;" id="count-order-cancle">Đã hủy: </p>
+                 <p id="count-order-not">Chưa duyệt: </p>
+                 <p style="color: green;" id="count-order-ok">Đã phân công: </p>
+               </div>
+              
+
+              <div class="product-sold" style="margin-top: 70px">
+                <h3>Sản phẩm đã bán</h3>
+                <table class="table">
+                  <thead>
+                    <th>No</th>
+                    <th>Sản phẩm</th>
+                    <th>Hình ảnh</th>
+                    <th>Số lượng đã bán</th>
+                  </thead>
+                  <tbody id="spdaban">
+                  </tbody>
+                </table>
+              </div>
+    
+            </div> 
+            </div>
+
+
+
+            <div
+                class="tab-pane fade"
+                id="report-pdf"
+                role="tabpanel"
+                aria-labelledby="orders-nav"
+              >
+            <div class="container mt-3" >
+              <h2 style="margin-left: 420px;">Report</h2>
+            <table class="table">
+                  <thead>
+                  
+                  </thead>
+                  <tbody id="listreport">
+                    <tr>
+                      <td>1</td>
+                      <td style="text-align:left">Báo cáo doanh thu từng tháng trong năm </td>
+                      <td>Năm:<select name="statistical" id="" class="combo" style="height:25px;width:150px;margin-left: 100px;" onchange="validateSelectBoxReport(this)">
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                      </select></td>
+                      <td style="text-align:left" id="report-year"></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>  
+                      <td style="text-align:left">Báo cáo tồn kho tính đến hiện tại</td>
+                      <td style="text-align:left"><a href="/quan-tri/Report_QuantityInStock" class="btn btn-primary"><i class="fas fa-search"></i></a></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td style="text-align:left">Báo cáo thống kê TOP những sản phẩm bán chạy</td>
+                      
+                     <td>NO: <input id="quantity-product-pdf" type="text" style="width:30px"> Từ: <input id="date-from-pdf" type="date" style="width:160px"></td>
+                      <td style="text-align:left;">Đến: <input id="date-to-pdf" type="date" style="width:160px"><button onclick="product_sold_pdf()"><i class="fas fa-search"></i></button></td>
+                      
+                    </tr>
+                  </tbody>
+                </table>
+              </div> 
+              </div>
+
+
+
+
+              <div
+                class="tab-pane fade"
+                id="khuyen-mai"
+                role="tabpanel"
+                aria-labelledby="orders-nav"
+              >
+              
+               <div class="container mt-3" >
+                <!-- Button to Open the Modal -->
+      <button type="button" class="btn btn-primary" >
+        <a href="/quan-tri/addkm">Thêm</a>
+   </button>
+            <table class="table">
+                  <thead>
+                    <th>Mã</th>
+                    <th>Tên KM</th>
+                    <th>Ngày bắt đầu</th>
+                    <th>Ngày kết thúc</th>
+                    <th>Lí do</th>
+                    <th>Mã NV</th>
+                    <th>Thêm SP</th>
+                    <th>Quản lí</th>
+                  </thead>
+                  <tbody id="listkhuyenmai">
+                  </tbody>
+                </table>
+              </div> 
+              </div>
+
+
+              <div
+                class="tab-pane fade"
+                id="sp-khuyen-mai"
+                role="tabpanel"
+                aria-labelledby="orders-nav"
+              >
+              
+               <div class="container mt-3" >
+              
+   </button>
+            <table class="table">
+                  <thead>
+                    <th>Mã</th>
+                    <th>Tên KM</th>
+                    <th>Sản phẩm</th>
+                    <th>Hình ảnh</th>
+                    <th>Giảm</th>
+                    <th>Quản lí</th>
+                  </thead>
+                  <tbody id="listkm">
+                  </tbody>
+                </table>
+              </div> 
+              </div>
+
+
+
+              <div
+                class="tab-pane fade"
+                id="nhacungcap"
+                role="tabpanel"
+                aria-labelledby="orders-nav"
+              >
+              
+               <div class="container mt-3" >
+                <!-- Button to Open the Modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Thêm
+   </button>
+
+   <!-- The Modal -->
+   <div class="modal" id="myModal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+               <h4 class="modal-title">Thêm mới nhà cung cấp</h4>
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="container mt-3">
+                <form name="form_ncc" action="/quan-tri/addncc" method="post" onsubmit="return validateform_ncc()">
+                    <div id="alert-ncc" style="color: red;"></div>
+                    <label for="maso">Mã Nhà cung cấp <span style="color: red;">*</span></label>
+                    <input type="text" name="mancc" class="form-control">
+                    <label for="name">Tên <span style="color: red;">*</span></label>
+                    <input type="text" name="ten" class="form-control">
+                    <label for="address">Địa chỉ <span style="color: red;">*</span></label>
+                    <input type="text" name="diachi" class="form-control">
+                    <label for="email">Email <span style="color: red;">*</span></label>
+                    <input type="text" name="email" class="form-control">
+                    <label for="phone">Số điện thoại <span style="color: red;">*</span></label>
+                    <input type="text" name="sdt" class="form-control">
+                    <input type="submit" value="Thêm mới" class="btn btn-primary mt-2" style="margin-left: 120px;"> <br>
+                </form>
+               </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+         </div>
+      </div>
+   </div>
+            <table class="table">
+                  <thead>
+                    <th>Mã số</th>
+                    <th>Tên</th>
+                    <th>Địa chỉ</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
+                    <th>Quản lí</th>
+                  </thead>
+                  <tbody id="listncc">
+                  </tbody>
+                </table>
+              </div> 
+              </div>
+              <div
+                class="tab-pane fade"
+                id="khach-hang"
+                role="tabpanel"
+                aria-labelledby="payment-nav"
+              >
+              <div class="container mt-3" >
+         <table class="table">
+                <thead>
+                  <th>Mã</th>
+                  <th>Họ Tên</th>
+                  <th>Địa chỉ</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Quản lí</th>
+                </thead>
+                <tbody id="listkhachhang">
+                </tbody>
+              </table>
+              </div>
+            </div> 
+            <div
+                class="tab-pane fade"
+                id="nhan-vien"
+                role="tabpanel"
+                aria-labelledby="payment-nav"
+              >
+              <div class="container mt-3" >
+                    <!-- Button to Open the Modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal6">
+        Thêm
+   </button>
+
+   <!-- The Modal -->
+   <div class="modal" id="myModal6">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+               <h4 class="modal-title">Thêm mới nhân viên</h4>
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="container mt-3">
+                <form name="form_nv" action="/quan-tri/addnhanvien" method="post" onsubmit="return validateform_nv()">
+                    <div id="alert-nv" style="color: red;"></div>
+                    <label for="maso">Mã nhân viên <span style="color: red;">*</span></label>
+                    <input type="text" name="id" class="form-control">
+                    <label for="maso">họ <span style="color: red;">*</span></label>
+                    <input type="text" name="surname" class="form-control">
+                    <label for="name">Tên <span style="color: red;">*</span></label>
+                    <input type="text" name="name" class="form-control">
+                    <label for="name">Giới tính <span style="color: red;">*</span></label>
+                    <input class="input-sex" name="sex" type="radio" value="Nam"/>Nam
+                    <input class="input-sex" name="sex" type="radio" value="Nữ" />Nữ<br>
+                    <label for="age">Ngày sinh <span style="color: red;">*</span></label><br />
+                    <input
+                      type="date"
+                      name="birthday"
+                      min="1990-01-02"
+                    /><br /><br />
+                    <label for="address">Địa chỉ <span style="color: red;">*</span></label>
+                    <input type="text" name="address" class="form-control">
+                    <label for="email">Email <span style="color: red;">*</span></label>
+                    <input type="text" name="email" class="form-control">
+                    <label for="phone">Số điện thoại <span style="color: red;">*</span></label>
+                    <input type="text" name="phone" class="form-control">
+                    <label for="phone">Username <span style="color: red;">*</span></label>
+                    <input type="text" name="username" class="form-control">
+                    <input type="submit" value="Thêm mới" class="btn btn-primary mt-2"> <br>
+                </form>
+               </div>
+            </div>
+    
+            
+         </div>
+      </div>
+   </div>
+              <table class="table">
+                <thead>
+                  <th>Mã</th>
+                  <th>Họ Tên</th>
+                  <th>Địa chỉ</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Quản lí</th>
+                </thead>
+                <tbody id="listnhanvien">
+                </tbody>
+              </table>
+              </div>
+            </div> 
+            <div
+                class="tab-pane fade"
+                id="catalog"
+                role="tabpanel"
+                aria-labelledby="address-nav"
+              >
+              <div class="container mt-3" >
+                <!-- Button to Open the Modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+        Thêm
+   </button>
+
+   <!-- The Modal -->
+   <div class="modal" id="myModal2">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+               <h4 class="modal-title">Thêm mới loai sản phẩm</h4>
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="container mt-3">
+                <form name="form_cat" action="/quan-tri/addloai" method="post" onsubmit="return validateform_cat()">
+                    <div id="alert-cat" style="color: red;"></div>
+                    <label for="maso">Mã loại <span style="color: red;">*</span></label>
+                    <input type="text" name="id" class="form-control">
+                    <label for="name">Tên loại <span style="color: red;">*</span></label>
+                    <input type="text" name="ten" class="form-control">
+                    <input type="submit" value="Thêm mới" class="btn btn-primary mt-2"> <br>
+                </form>
+               </div>
+            </div>
+
+        
+         </div>
+      </div>
+   </div>
+   <table class="table">
+                  <thead>
+                    <th>Mã số</th>
+                    <th>Tên loại</th>
+                    <th>Quản lí</th>
+                  </thead>
+                  <tbody id="listcatalog">
+                  </tbody>
+                </table>
+              </div> 
+              </div>
+              <div
+                class="tab-pane fade"
+                id="thuong-hieu"
+                role="tabpanel"
+                aria-labelledby="address-nav"
+              >
+              <div class="container mt-3" >
+              
+                 <!-- Button to Open the Modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3">
+        Thêm
+   </button>
+
+   <!-- The Modal -->
+   <div class="modal" id="myModal3">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+               <h4 class="modal-title">Thêm mới Thương Hiệu</h4>
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="container mt-3">
+                <form name="form_th" action="/quan-tri/addth" method="post" onsubmit="return validateform_th()">
+                    <div id="alert-th" style="color: red;"></div>
+                    <label for="maso">Mã Thương Hiệu <span style="color: red;">*</span></label>
+                    <input type="text" name="id" class="form-control">
+                    <label for="name">Tên Thương Hiệu <span style="color: red;">*</span></label>
+                    <input type="text" name="ten" class="form-control">
+                    <input type="submit" value="Thêm mới" class="btn btn-primary mt-2"> <br>
+                </form>
+               </div>
+            </div>
+
+        
+         </div>
+      </div>
+   </div>
+          <table class="table">
+                <thead>
+                  <th>Mã thương hiệu</th>
+                  <th>Tên thương hiệu</th>
+                  <th>Quản lí</th>
+                </thead>
+                <tbody id="listthuonghieu">
+                </tbody>
+              </table>
+            </div>
+              </div>
+
+
+              <div
+                class="tab-pane fade"
+                id="orders-tab"
+                role="tabpanel"
+                aria-labelledby="address-nav"
+              >
+              <div class="container mt-3" >
+                <div class="checkbox-orders">
+                <input type="radio" id="all-orders" name="status" value="all" checked="true" onclick="renderOrderAll()">
+                <label for="name"><span>Tất cả</span></label>
+                <input type="radio" id="not-confirm" name="status" value="not" onclick="renderOrdernot()">
+                <label for="name"><span style="color: red;">Chưa duyệt</span></label>
+                <input type="radio" id="confirm" name="status" value="ok" onclick="renderOrderok()">
+                <label for="name"><span style="color: green;">Đã phân công</span></label>
+                <input type="radio" id="complete" name="status" value="complete" onclick="renderOrdercomplete()">
+                <label for="name"><span style="color: blue;">Đã giao</span></label>
+                <input type="radio" id="cancle" name="status" value="cancle" onclick="renderOrdercancle()">
+                <label for="name"><span style="color: red;">Đã hủy</span></label>
+              </div>
+                
+   <!-- The Modal -->
+   <div class="modal" id="myModal10">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+               <h4 class="modal-title">Phân công giao hàng</h4>
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="container mt-3">
+                <form action="/quan-tri/confirm_order" method="post" >
+                    <label for="maso">Mã Đơn hàng</label>
+                    <input id="id_order_rec" type="none" name="iddonhang" class="form-control" value="">
+                    <input type="hidden" name="idnvd" value="<%=user.id%>">
+                    <label for="maso">Nhân viên giao hàng <span style="color: red;">*</span></label><br>
+                    <select name="idnvgh" id="dropdown-nvgh" class="combo" style="height:25px;">
+                     
+                    </select>
+                    <br>
+                    <input type="submit" value="Xác nhận" class="btn btn-primary mt-2"> <br>
+                </form>
+               </div>
+            </div>
+
+        
+         </div>
+      </div>
+   </div>
+          <table class="table">
+                <thead>
+                  <th>Mã</th>
+                  <th>Ngày đặt</th>
+                  <th>Thông tin người đặt</th>
+                  <th>Status</th>
+                  <th>Giá trị</th>
+                  <th>Quản lí</th>
+                </thead>
+                <tbody id="listorders">
+                 
+                </tbody>
+              </table>
+
+            </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="product"
+                role="tabpanel"
+                aria-labelledby="address-nav"
+              >
+              <div class="container mt-3" >
+                        <!-- Button to Open the Modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4">
+        Thêm
+   </button>
+
+   <!-- The Modal -->
+   <div class="modal" id="myModal4">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+               <h4 class="modal-title">Thêm mới sản phẩm</h4>
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="container mt-3">
+                <form name="form_sp" action="/quan-tri/addsp" method="post" onsubmit="return validateform_sp()">
+                    <div id="alert-sp" style="color: red;"></div>
+                    <label for="maso">Mã dòng <span style="color: red;">*</span></label>
+                    <input type="text" name="id" class="form-control">
+                    <label for="name">Tên dòng rượu <span style="color: red;">*</span></label>
+                    <input type="text" name="name" class="form-control">
+                    <label for="name">Giá <span style="color: red;">*</span></label>
+                    <input type="text" name="price" class="form-control">
+                    <!-- <label for="name">Trạng thái <span style="color: red;">*</span></label>
+                    <input type="text" name="status" class="form-control"> -->
+                    <label for="name">Hình ảnh <span style="color: red;">*</span></label>
+                    <input type="file" name="image" class="form-control">
+                    <label for="name">Mô tả <span style="color: red;">*</span></label>
+                    <input type="text" name="des" class="form-control">
+                    <label for="name">Loại rượu <span style="color: red;">*</span></label><br>
+                    <select name="maloai" id="dropdown-cat" class="combo" style="height:25px;">
+                      <option value="">None</option>
+                    </select>
+                    <br>
+                    <label for="name">Thương hiệu <span style="color: red;">*</span></label><br>
+                    <select name="math" id="dropdown-brand" class="combo" style="height:25px;">
+                      <option value="">None</option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Thêm mới" class="btn btn-primary mt-2" > <br>
+                </form>
+               </div>
+            </div>
+
+        
+         </div>
+      </div>
+   </div>
+              <table class="table">
+                <thead>
+                  <th>Mã</th>
+                  <th>Tên dòng</th>
+                  <th>Giá</th>
+                  <th>Hình ảnh</th>
+                  <th>SL</th>
+                  <th>Loại</th>
+                  <th>Quản lí</th><img src="" alt="">
+                </thead>
+                <tbody id="listproduct">
+                </tbody>
+              </table>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center" >
+                  <li class="page-items prev-item" >
+                    <a class="btn-prev page-link" href="#">Previous</a>
+                  </li>
+                  <div class="number-page" id="number-page"></div>
+                  <li class="page-items next-item">
+                    <a class="btn-next page-link"  href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/slick/slick.min.js"></script>
+   
+
+    <!-- Template Javascript -->
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </body>
+</html>
+<script>
+
+
+const renderncc = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let ncc = data[i];
+      str += `  <tr>
+                      <td>${ncc.MANCC}</td>
+                      <td>${ncc.TENNCC}</td>
+                      <td>${ncc.DIACHI}</td>
+                      <td>${ncc.EMAIL}</td>
+                      <td>${ncc.SDT}</td>
+                      <td>
+                        <a href="/quan-tri/edit/${ncc.MANCC}" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                        <a href="/quan-tri/order_producer/${ncc.MANCC}" class="btn btn-primary"><i class="fas fa-cart-arrow-down"></i></i></a>
+                        <a onclick="return confirm('Bạn có chắc muốn xóa item này hay không???')" href="/quan-tri/delete/${ncc.MANCC}"   class="btn btn-danger" ><i class="fas fa-trash"></i></a>
+                      </td>
+                    </tr>`;
+    }
+    divNonNoiBat.innerHTML += str;
+  };
+
+
+
+
+  const renderdropdownlist= (data, id) => {
+    const divcat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let cat = data[i];
+      str += `<option value="${cat.MALOAI}">${cat.TENLOAI}</option>`;
+    }
+    divcat.innerHTML += str;
+  };
+
+  const renderdropdownlist1= (data, id) => {
+    const divcat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let brand = data[i];
+      str += `<option value="${brand.MATH}">${brand.TENTH}</option>`;
+    }
+    divcat.innerHTML += str;
+  };
+
+  const dropdownlistnvgh= (data, id) => {
+    $(".nvgh").remove();
+    const divcat = document.getElementById(id);
+
+    let str = ``;
+    for (i in data) {
+      let nv = data[i];
+      str += `<option class="nvgh" value="${nv.MANV}"><${nv.MANV}>  ${nv.HO} ${nv.TEN} (${nv.sd} đơn) </option>`;
+    }
+    divcat.innerHTML += str;
+  };
+
+
+
+ 
+
+
+  const renderkh = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let kh = data[i];
+      str += ` <tr>
+                      <td>${kh.MAKH}</td>
+                      <td>${kh.HO} ${kh.TEN}</td>
+                      <td>${kh.DIACHI}</td>
+                      <td>${kh.EMAIL}</td>
+                      <td>${kh.SDT}</td>
+                      <td>
+                        <a href="/quan-tri/editkh/${kh.MAKH}" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                        <a href="/quan-tri/deletekh/${kh.MAKH}" onclick="return confirm('Bạn có chắc muốn xóa item này hay không???')" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                      </td>
+                    </tr>`;
+    }
+    divNonNoiBat.innerHTML += str;
+  };
+
+  const rendernv = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let nv = data[i];
+      str += ` <tr>
+                      <td>${nv.MANV}</td>
+                      <td style="width:200px">${nv.HO} ${nv.TEN}</td>
+                      <td>${nv.DIACHI}</td>
+                      <td>${nv.EMAIL}</td>
+                      <td>${nv.SDT}</td>
+                      <td>
+                        <a href="/quan-tri/editnv/${nv.MANV}" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                        <a href="/quan-tri/deletenv/${nv.MANV}" onclick="return confirm('Bạn có chắc muốn xóa item này hay không???')" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                      </td>
+                    </tr>`;
+    }
+    divNonNoiBat.innerHTML += str;
+  };
+
+
+  const rendercat = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let cat = data[i];
+      str += ` <tr>
+                      <td>${cat.MALOAI}</td>
+                      <td>${cat.TENLOAI}</td>
+                      <td>
+                        <a href="/quan-tri/editloai/${cat.MALOAI}" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                        <a href="/quan-tri/deleteloai/${cat.MALOAI}" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa item này hay không???')"><i class="fas fa-trash"></i></a>
+                      </td>
+                    </tr>`;
+    }
+    divNonNoiBat.innerHTML += str;
+  };
+
+  const renderTH = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let th = data[i];
+      str += ` <tr>
+                      <td>${th.MATH}</td>
+                      <td>${th.TENTH}</td>
+                      <td>
+                        <a href="/quan-tri/editth/${th.MATH}" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                        <a href="/quan-tri/deleteth/${th.MATH}" onclick="return confirm('Bạn có chắc muốn xóa item này hay không???')" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                      </td>
+                    </tr>`;
+    }
+    divNonNoiBat.innerHTML += str;
+  };
+
+// API SAN PHAM
+
+  var perPages = 10;
+  let currentPage = 1;
+  let start = 0;
+  let end = perPages;
+  
+
+  const btnNext = document.querySelector('.btn-next');
+  const btnPrev = document.querySelector('.btn-prev');
+
+  function getCurrentPage(currentPage){
+    start = (currentPage - 1)*perPages;
+    end = currentPage * perPages; 
+}
+
+  const rendersp = (data, id) => {
+    $(".rendersp").remove();
+    const divNonNoiBat = document.getElementById(id);
+    const totalPages = Math.ceil(data.length / perPages);
+    let str = ``;
+    for(i in data){
+      let sp = data[i];
+      if(i >= start && i < end){
+        str += ` <tr class="rendersp"><td>${sp.MADONG}</td>
+                      <td style="width:200px">${sp.TENDONG}</td>
+                      <td>${sp.GIA.toLocaleString(
+                        "vi-VN"
+                      )}</td>
+                      <td style="width:200px"><img style="width:40%" src="../${sp.HINHANH}" alt=""></td>
+                      <td>${sp.SOLUONGTON}</td>
+                      <td>${sp.TENLOAI}</td>
+                      <td>
+                        <a href="/quan-tri/editsp/${sp.MADONG}" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                        <a href="/quan-tri/deletesp/${sp.MADONG}" onclick="return confirm('Bạn có chắc muốn xóa item này hay không???')" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                      </td>
+                    </tr>`;  
+                  }
+    }
+
+    divNonNoiBat.innerHTML += str;
+    renderListPage(totalPages);
+    changePage();
+  };
+
+
+//API orders
+const renderOrders = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+    
+    let str = ``;
+    for (i in data) {
+      let pd = data[i];
+      let orderdate = new Date(pd.NGAYDAT);
+      let datetime =orderdate.getDate()+"/"  +(orderdate.getMonth() + 1) +"/" + orderdate.getFullYear();
+      if(pd.TRANGTHAI === "Chưa duyệt"){
+      str += ` <tr id="list-orders">
+                      <td>${pd.MAPD}</td>
+                      <td>${datetime}</td>
+                      <td style="width:300px;font-size:14px;text-align:left"><span style="font-weight:600">Họ và tên:</span> ${pd.HO} ${pd.TEN}<br/><span style="font-weight:600">Địa chỉ:</span> ${pd.DIACHI} <span style="color:blue">${pd.TENQUAN}</span>.<br/><span style="font-weight:600">Phone:</span> ${pd.SDT}<br/> <span style="font-weight:600">Email:</span> ${pd.EMAIL}</td>
+                      <td style="color:red">${pd.TRANGTHAI}</td>
+                      <td>${pd.THANHTIEN} $</td>
+                      <td>
+                        <a href="/quan-tri/review_order_not/${pd.MAPD}" class="btn btn-primary"><i class="fas fa-search"></i></a>
+                        <button data-id="${pd.MAPD}" class="btn-confirm-orders btn btn-primary" data-toggle="modal" data-target="#myModal10" onclick="render_list_deli('${pd.MAQUAN}')">Duyệt</button>
+                      </td>
+                    </tr>`;
+                  }else if(pd.TRANGTHAI === "Đã phân công"){
+                    str += ` 
+                    <tr list-orders> 
+                      <td>${pd.MAPD}</td>
+                      <td>${datetime}</td>
+                      <td style="width:300px;font-size:14px;text-align:left"><span style="font-weight:600">Họ và tên:</span> ${pd.HO} ${pd.TEN}<br/><span style="font-weight:600">Địa chỉ:</span> ${pd.DIACHI} <span style="color:blue">${pd.TENQUAN}</span>.<br/><span style="font-weight:600">Phone:</span> ${pd.SDT}<br/> <span style="font-weight:600">Email:</span> ${pd.EMAIL}</td>
+                      <td style="color:green">${pd.TRANGTHAI}</td>
+                      <td>${pd.THANHTIEN} $</td>
+                      <td>
+                        <a href="/quan-tri/review_order/${pd.MAPD}" class="btn btn-primary"><i class="fas fa-search"></i></a>
+                        <a href="/quan-tri/CompleteOrder/${pd.MAPD}" class="btn btn-primary"><i class="fas fa-check-circle"></i></a>
+                        <a href="/quan-tri/Bill/${pd.MAPD}" class="btn btn-primary"><i class="far fa-file-alt"></i></a>
+                      </td>
+                    </tr>`;
+                  }else if(pd.TRANGTHAI === "Đã giao"){
+                    str += ` 
+                    <tr list-orders> 
+                      <td>${pd.MAPD}</td>
+                      <td>${datetime}</td>
+                      <td style="width:300px;font-size:14px;text-align:left"><span style="font-weight:600">Họ và tên:</span> ${pd.HO} ${pd.TEN}<br/><span style="font-weight:600">Địa chỉ:</span> ${pd.DIACHI} <span style="color:blue">${pd.TENQUAN}</span>.<br/><span style="font-weight:600">Phone:</span> ${pd.SDT}<br/> <span style="font-weight:600">Email:</span> ${pd.EMAIL}</td>
+                      <td style="color:blue">${pd.TRANGTHAI}</td>
+                      <td>${pd.THANHTIEN} $</td>
+                      <td>
+                        <a href="/quan-tri/review_order/${pd.MAPD}" class="btn btn-primary"><i class="fas fa-search"></i></a>
+                        <a href="/quan-tri/Bill/${pd.MAPD}" class="btn btn-primary"><i class="far fa-file-alt"></i></a>
+                      </td>
+                    </tr>`;
+                  }else if(pd.TRANGTHAI === "Đã hủy"){
+                    str += ` 
+                    <tr list-orders> 
+                      <td>${pd.MAPD}</td>
+                      <td>${datetime}</td>
+                      <td style="width:300px;font-size:14px;text-align:left"><span style="font-weight:600">Họ và tên:</span> ${pd.HO} ${pd.TEN}<br/><span style="font-weight:600">Địa chỉ:</span> ${pd.DIACHI}.<br/><span style="font-weight:600">Phone:</span> ${pd.SDT}<br/> <span style="font-weight:600">Email:</span> ${pd.EMAIL}</td>
+                      <td style="color:red">${pd.TRANGTHAI}</td>
+                      <td>${pd.THANHTIEN} $</td>
+                      <td>
+                        <a href="/quan-tri/review_order/${pd.MAPD}" class="btn btn-primary"><i class="fas fa-search"></i></a>
+                        <a href="/quan-tri/Delete_order/${pd.MAPD}" class="btn btn-primary"><i class="far fa-trash-alt"></i></i></a>
+                      </td>
+                    </tr>`;
+                  }
+    }
+   
+    divNonNoiBat.innerHTML += str;
+  };
+
+
+  function render_list_deli(dt){
+    console.log(`lay duoc district: ${dt}`)
+    let district = dt;
+      window
+      .fetch(`http://localhost:3000/quan-tri/api/listDeliById/${district}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        let id = "dropdown-nvgh";
+    
+        dropdownlistnvgh(data, id);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+
+  $(document).on("click",".btn-confirm-orders", function () {
+    const a =  $(this).attr("data-id");
+    document.getElementById("id_order_rec").setAttribute("value",a);
+  });
+
+
+btnNext.addEventListener('click',()=>{
+  currentPage++;
+  // if(currentPage > totalPage){
+  //   currentPage = totalPage;
+  // }
+  getCurrentPage(currentPage);
+  let id = document.getElementById("listproduct");
+  RenderProduct();
+});
+
+btnPrev.addEventListener('click',()=>{
+  currentPage--;
+  getCurrentPage(currentPage);
+  let id = document.getElementById("listproduct");
+  RenderProduct();
+});
+
+
+//END OF API SAN PHAM
+
+  const renderctkhuyenmai = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let km = data[i];
+      str += ` <tr>   
+                      <td>${km.MAKM}</td>
+                      <td>${km.TENKM}</td>
+                      <td style="width:200px">${km.TENDONG}</td>
+                      <td style="width:300px"><img src="../${km.HINHANH}" alt="" style="width:30%"></td>
+                      <td>${km.PHANTRAMGIAM}%</td>
+                      <td>
+                        <a href="/quan-tri/deletesp/${km.MAKM}" onclick="return confirm('Bạn có chắc muốn xóa item này hay không???')" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                      </td>
+                    </tr>`;
+    }
+    divNonNoiBat.innerHTML += str;
+  };
+
+
+  const renderkhuyenmai = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let km = data[i];
+      let startdate = new Date(km.NGAYBATDAU);
+      let datetime1 =startdate.getDate()+"/"  +(startdate.getMonth() + 1) +"/" + startdate.getFullYear();
+      let enddate = new Date(km.NGAYKETTHUC);
+      let datetime2 =enddate.getDate()+"/"  +(enddate.getMonth() + 1) +"/" + enddate.getFullYear();
+      str += ` <tr>   
+                      <td>${km.MAKM}</td>
+                      <td>${km.TENKM}</td>
+                      <td>${datetime1}</td>
+                      <td>${datetime2}</td>
+                      <td>${km.LIDO}</td>
+                      <td>${km.MANV}</td>
+                      <td><a href="/quan-tri/them_sp_km/${km.MAKM}" class="btn btn-primary"><i class="fas fa-plus-circle"></i></a></td>
+                      <td>
+                        
+                        <a href="/quan-tri/editkm/${km.MAKM}" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                        <a href="/quan-tri/deletekm/${km.MAKM}" onclick="return confirm('Bạn có chắc muốn xóa item này hay không???')" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                      </td>
+                    </tr>`;
+    }
+    divNonNoiBat.innerHTML += str;
+  };
+
+  const renderspdaban = (data, id) => {
+    const div = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let sp = data[i];
+      str += ` <tr>     
+                      <td>${++i}</td>
+                      <td>${sp.TENDONG}</td>
+                      <td style="width:300px"><img style="width:30%" src="../${sp.HINHANH}"></td>
+                      <td>${sp.sl}</td>
+                    </tr>`;
+    }
+    div.innerHTML += str;
+  };
+
+  const render_count_order = (data, id) => {
+    const div = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let sp = data[i];
+      str += ` <span> ${sp.sl}</span>`;
+    }
+    div.innerHTML += str;
+  };
+  const render_count_order_not = (data, id) => {
+    const div = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let sp = data[i];
+      str += ` <span> ${sp.sl}</span>`;
+    }
+    div.innerHTML += str;
+  };
+  const render_count_order_ok = (data, id) => {
+    const div = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let sp = data[i];
+      str += ` <span> ${sp.sl}</span>`;
+    }
+    div.innerHTML += str;
+  };
+  const render_count_order_complete = (data, id) => {
+    const div = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let sp = data[i];
+      str += ` <span> ${sp.sl}</span>`;
+    }
+    div.innerHTML += str;
+  };
+  const render_count_order_cancle = (data, id) => {
+    const div = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let sp = data[i];
+      str += ` <span> ${sp.sl}</span>`;
+    }
+    div.innerHTML += str;
+  };
+
+
+
+
+
+
+  window
+.fetch("http://localhost:3000/quan-tri/api/product_sold")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "spdaban";
+  renderspdaban(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+
+
+  window
+.fetch("http://localhost:3000/users/api/all-nhacungcap")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "listncc";
+  renderncc(data, id);
+  var list = JSON.stringify(data);
+  localStorage.setItem('listncc', list);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+window
+.fetch("http://localhost:3000/quan-tri/api/all-khachhang")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "listkhachhang";
+  renderkh(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+window
+.fetch("http://localhost:3000/quan-tri/api/all-nhanvien")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "listnhanvien";
+  rendernv(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+
+window
+.fetch("http://localhost:3000/quan-tri/api/all-catalog")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "listcatalog";
+  rendercat(data, id);
+  
+})
+.catch((err) => {
+  console.log(err);
+});
+
+window
+.fetch("http://localhost:3000/quan-tri/api/all-thuonghieu")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "listthuonghieu";
+  renderTH(data, id);
+  var list = JSON.stringify(data);
+  localStorage.setItem('listth', list);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+RenderProduct();
+
+
+function RenderProduct(){
+  window
+.fetch("http://localhost:3000/quan-tri/api/all-SP")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "listproduct";
+  rendersp(data,id);
+  var list = JSON.stringify(data);
+  localStorage.setItem('listsp', list);
+})
+.catch((err) => {
+  console.log(err);
+});
+}
+
+
+window
+.fetch("http://localhost:3000/quan-tri/api/all-khuyenmai")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "listkm";
+  renderctkhuyenmai(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+window
+.fetch("http://localhost:3000/quan-tri/api/all-khuyenmai1")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+
+  let id = "listkhuyenmai";
+  renderkhuyenmai(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+
+window
+.fetch("http://localhost:3000/quan-tri/api/all-cat")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "dropdown-cat";
+  renderdropdownlist(data, id);
+  var list = JSON.stringify(data);
+  localStorage.setItem('listcat', list);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+
+
+
+
+
+window
+.fetch("http://localhost:3000/quan-tri/api/all-brand")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "dropdown-brand";
+  renderdropdownlist1(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+window
+.fetch("http://localhost:3000/quan-tri/api/count_order")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  let id = "count-order";
+  render_count_order(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+window
+.fetch("http://localhost:3000/quan-tri/api/count_order_not")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  let id = "count-order-not";
+  render_count_order_not(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+window
+.fetch("http://localhost:3000/quan-tri/api/count_order_complete")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  let id = "count-order-complete";
+  render_count_order_complete(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+window
+.fetch("http://localhost:3000/quan-tri/api/count_order_cancle")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  let id = "count-order-cancle";
+  render_count_order_cancle(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+window
+.fetch("http://localhost:3000/quan-tri/api/count_order_ok")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  let id = "count-order-ok";
+  render_count_order_ok(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+
+
+
+
+
+
+
+
+
+localStorage.setItem("recentadmin", '<%=user.id%>');
+
+
+
+ function xoa_dau(str) {
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "a");
+    str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "e");
+    str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "i");
+    str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "o");
+    str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "u");
+    str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "y");
+    str = str.replace(/Đ/g, "d");
+    str = str.split(" ").join("-");
+    return str;
+  }
+
+function replaceNameProduct(nameProduct) {
+    var newNameProduct = xoa_dau(nameProduct);
+    return newNameProduct;
+  }
+
+  
+
+function renderListPage(totalPages) {
+  let div = document.getElementById("number-page");
+  $(".page-item").remove();
+  let html = ``;
+  html += `<li class="page-item"><a class="page-link" href="#">${1}</a></li>`;
+  for (let i = 2 ; i <= totalPages; i++) {
+    html += `<li class="page-item"><a class="page-link" href="#">${i}</a></li>`;
+  }
+  // if (totalPages === 0) {
+  //   html = "";
+  // }
+  
+  div.innerHTML += html;
+}
+
+// function GetRecentlyPage(){
+//   const currentPages = document.querySelectorAll('.number-page li');
+//   for(let i=0;i<=currentPages.length;i++){
+//     if(currentPages[i] === currentPage){
+//       currentPages[i].addclass("active");
+//     }
+//   }
+// }
+
+
+function changePage(){
+  const currentPages = document.querySelectorAll('.number-page li');
+  console.log(`So luong phan trang:${currentPages}`);
+  for(let i=0;i<currentPages.length;i++){
+    currentPages[i].addEventListener('click',()=>{
+        let value = i+1;
+        console.log(value);
+        currentPage = value;
+        getCurrentPage(currentPage);
+        RenderProduct();
+    })
+  }
+}
+
+
+// window
+//     .fetch("http://localhost:3000/quan-tri/api/all-order-not")
+//     .then((res) => {
+//         return res.json();
+//     })
+//     .then((data) => {
+//      console.log(data);
+//      let id = "listorders";
+//      renderOrders(data, id);
+//     })
+//     .catch((err) => {
+//     console.log(err);
+//   });
+
+
+//   window
+//     .fetch("http://localhost:3000/quan-tri/api/all-order-ok")
+//     .then((res) => {
+//         return res.json();
+//     })
+//     .then((data) => {
+//      console.log(data);
+//      let id = "listorders";
+//      renderOrders(data, id);
+//     })
+//     .catch((err) => {
+//     console.log(err);
+//   });
+
+//   window
+//     .fetch("http://localhost:3000/quan-tri/api/all-order-complete")
+//     .then((res) => {
+//         return res.json();
+//     })
+//     .then((data) => {
+//      console.log(data);
+//      let id = "listorders";
+//      renderOrders(data, id);
+//     })
+//     .catch((err) => {
+//     console.log(err);
+//   });
+
+//   window
+//     .fetch("http://localhost:3000/quan-tri/api/all-order-cancle")
+//     .then((res) => {
+//         return res.json();
+//     })
+//     .then((data) => {
+//      console.log(data);
+//      let id = "listorders";
+//      renderOrders(data, id);
+//     })
+//     .catch((err) => {
+//     console.log(err);
+//   });
+
+renderOrderAll();
+function renderOrderAll(){
+  $("#listorders").empty();
+  window
+.fetch("http://localhost:3000/quan-tri/api/all-orders")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "listorders";
+  renderOrders(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+}
+
+
+
+function renderOrdernot(){
+  $("#listorders").empty();
+  window
+    .fetch("http://localhost:3000/quan-tri/api/all-order-not")
+    .then((res) => {
+        return res.json();
+    })
+    .then((data) => {
+     console.log(data);
+     let id = "listorders";
+     renderOrders(data, id);
+    })
+    .catch((err) => {
+    console.log(err);
+  });
+}
+
+function renderOrderok(){
+  $("#listorders").empty();
+  window
+    .fetch("http://localhost:3000/quan-tri/api/all-order-ok")
+    .then((res) => {
+        return res.json();
+    })
+    .then((data) => {
+     console.log(data);
+     let id = "listorders";
+     renderOrders(data, id);
+    })
+    .catch((err) => {
+    console.log(err);
+  });
+}
+
+
+function renderOrdercomplete(){
+  $("#listorders").empty();
+  window
+    .fetch("http://localhost:3000/quan-tri/api/all-order-complete")
+    .then((res) => {
+        return res.json();
+    })
+    .then((data) => {
+     console.log(data);
+     let id = "listorders";
+     renderOrders(data, id);
+    })
+    .catch((err) => {
+    console.log(err);
+  });
+}
+
+function renderOrdercancle(){
+  $("#listorders").empty();
+  window
+    .fetch("http://localhost:3000/quan-tri/api/all-order-cancle")
+    .then((res) => {
+        return res.json();
+    })
+    .then((data) => {
+     console.log(data);
+     let id = "listorders";
+     renderOrders(data, id);
+    })
+    .catch((err) => {
+    console.log(err);
+  });
+}
+
+
+
+const render_sum_revenu = (data, id) => {
+    const div = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let dt = data[i];
+      if(dt.TONG == null){
+        str += `Doanh thu cửa hàng <span  style="margin-left:50px">0$</span>`;
+      }else
+      str += `Doanh thu cửa hàng <span  style="margin-left:50px">${dt.TONG}$</span>`;
+      
+    }
+    div.innerHTML += str;
+  };
+
+
+
+  function validateSelectBoxReport(obj)
+{
+
+    // Lấy danh sách các options
+    var options = obj.children;
+ 
+    // Biến lưu trữ các chuyên mục đa chọn
+    var html = '';
+ 
+    // lặp qua từng option và kiểm tra thuộc tính selected
+    for (var i = 0; i < options.length; i++){
+        if (options[i].selected){
+           
+            if(options[i].value==='2019'){
+            $("#report-year").empty();
+
+              html +=`<a href="/quan-tri/Report_revenu/2019" class="btn btn-primary"><i class="fas fa-search"></i></a>`;
+            }else if(options[i].value==='2020'){
+          $("#report-year").empty();
+          html +=`<a href="/quan-tri/Report_revenu/2020" class="btn btn-primary"><i class="fas fa-search"></i></a>`;
+
+            }else if(options[i].value==='2021'){
+              $("#report-year").empty();
+              html +=`<a href="/quan-tri/Report_revenu/2021" class="btn btn-primary"><i class="fas fa-search"></i></a>`;
+          }
+        }
+      }
+    
+ 
+    // Gán kết quả vào div#report-year
+    document.getElementById('report-year').innerHTML = html;
+}
+
+
+
+function product_sold_pdf()
+{
+    let quantity = document.getElementById('quantity-product-pdf').value;
+    let datefrom = document.getElementById('date-from-pdf').value;
+    let dateto = document.getElementById('date-to-pdf').value;
+    let datefrom1 = new Date(datefrom);
+    let dateto1 = new Date(dateto);
+
+    let datefrom2 = datefrom1.getDate()+"-"  +(datefrom1.getMonth() + 1) +"-" + datefrom1.getFullYear();
+    let dateto2 = dateto1.getDate()+"-"  +(dateto1.getMonth() + 1) +"-" + dateto1.getFullYear();
+    window.location = `/quan-tri/Report_Product_Sold_PDF/${quantity}/${datefrom2}/${dateto2}`;
+ 
+    // Gán kết quả vào div#report-year
+    document.getElementById('report-year').innerHTML = html;
+}
+
+
+
+
+function validateSelectBox(obj)
+{
+    // Lấy danh sách các options
+    var options = obj.children;
+ 
+    // Biến lưu trữ các chuyên mục đa chọn
+    var html = '';
+ 
+    // lặp qua từng option và kiểm tra thuộc tính selected
+    for (var i = 0; i < options.length; i++){
+        if (options[i].selected){
+           
+            if(options[i].value==='7 ngày'){
+            $("#sum-revenu").empty();
+             window
+            .fetch("http://localhost:3000/quan-tri/api/revenu7days")
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+            console.log(data);
+            let id = "sum-revenu";
+            render_sum_revenu(data, id);
+            })
+            .catch((err) => {
+            console.log(err);
+          });
+
+
+          $("#spdaban").empty();
+          window
+        .fetch("http://localhost:3000/quan-tri/api/product_sold_7days")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          let id = "spdaban";
+          renderspdaban(data, id);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+
+
+            }else if(options[i].value==='30 ngày'){
+          $("#sum-revenu").empty();
+             window
+            .fetch("http://localhost:3000/quan-tri/api/revenu30days")
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+            console.log(data);
+            let id = "sum-revenu";
+            render_sum_revenu(data, id);
+            })
+            .catch((err) => {
+            console.log(err);
+          });
+
+          $("#spdaban").empty();
+          window
+        .fetch("http://localhost:3000/quan-tri/api/product_sold_30days")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          let id = "spdaban";
+          renderspdaban(data, id);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+            }else if(options[i].value==='1 năm'){
+              $("#sum-revenu").empty();
+             window
+            .fetch("http://localhost:3000/quan-tri/api/revenuyear")
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+            console.log(data);
+            let id = "sum-revenu";
+            render_sum_revenu(data, id);
+            })
+            .catch((err) => {
+            console.log(err);
+          });
+
+
+          $("#spdaban").empty();
+          window
+        .fetch("http://localhost:3000/quan-tri/api/product_sold_year")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          let id = "spdaban";
+          renderspdaban(data, id);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+          }else if(options[i].value==='Hôm nay'){
+            $("#sum-revenu").empty();
+             window
+            .fetch("http://localhost:3000/quan-tri/api/revenutoday")
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+            console.log(data);
+            let id = "sum-revenu";
+            render_sum_revenu(data, id);
+            })
+            .catch((err) => {
+            console.log(err);
+          });
+
+          $("#spdaban").empty();
+          window
+        .fetch("http://localhost:3000/quan-tri/api/product_sold_today")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          let id = "spdaban";
+          renderspdaban(data, id);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+          }
+        }
+      }
+    
+ 
+    // Gán kết quả vào div#result
+    document.getElementById('result').innerHTML = html;
+}
+
+
+function validateform_ncc() {
+        $("#alert-ncc").empty();
+        const div = document.getElementById("alert-ncc");
+        var mancc = document.form_ncc.mancc.value
+        var ten = document.form_ncc.ten.value;
+        var sdt = document.form_ncc.sdt.value;
+        var diachi = document.form_ncc.diachi.value;
+        var email = document.form_ncc.email.value;
+        var list = JSON.parse(localStorage.getItem("listncc"));
+        var idx = list.findIndex((val) => val.MANCC === mancc);
+        var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+        if (mancc == null || mancc == "") {
+            div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        } else if (ten == null || ten == "") {
+            div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        }else if(sdt == null || sdt == "" ){
+          div.innerHTML += "Không được để trống thông tin!!!";
+          return false;
+        }else if(vnf_regex.test(sdt) == false){
+          div.innerHTML += "Số điện thoại sai định dạng!!!";
+          return false;
+        }else if(diachi == null || diachi == ""){
+            div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        }else if(email == null || email == ""){
+          div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        }else if(idx !== -1){
+          div.innerHTML += "Mã nhà cung cấp đã tồn tại!!!";
+          return false;
+       }
+  }
+      
+        
+
+
+  
+  function validateform_cat() {
+        $("#alert-cat").empty();
+        const div = document.getElementById("alert-cat");
+        var id = document.form_cat.id.value
+        var ten = document.form_cat.ten.value;
+        var list = JSON.parse(localStorage.getItem("listcat"));
+        var idx = list.findIndex((val) => val.MALOAI === id);
+        if (id == null || id == "") {
+            div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        } else if (ten == null || ten == "") {
+            div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        }else if(idx !== -1){
+          div.innerHTML += "Mã loại đã tồn tại!!!";
+          return false;
+        }
+  }
+
+  function validateform_th(){
+        $("#alert-th").empty();
+        const div = document.getElementById("alert-th");
+        var id = document.form_th.id.value
+        var ten = document.form_th.ten.value;
+        var list = JSON.parse(localStorage.getItem("listth"));
+        var idx = list.findIndex((val) => val.MATH === id);
+        if (id == null || id == "") {
+            div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        } else if (ten == null || ten == "") {
+            div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        }else if(idx !== -1){
+            div.innerHTML += "Mã thương hiệu đã tồn tại!!!";
+            return false;
+        }
+  }
+
+  
+  function validateform_sp() {
+        $("#alert-sp").empty();
+        const div = document.getElementById("alert-sp");
+        var id = document.form_sp.id.value
+        var name = document.form_sp.name.value;
+        var price = document.form_sp.price.value;
+        var image = document.form_sp.image.value;
+        var maloai = document.form_sp.maloai.value;
+        var math = document.form_sp.math.value;
+        var des = document.form_sp.des.value;
+        var list = JSON.parse(localStorage.getItem("listsp"));
+        var idx = list.findIndex((val) => val.MADONG === id);
+        if (id == null || id == "") {
+            div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        } else if (name == null || name == "") {
+            div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        }else if(price == null || price == "" ){
+            div.innerHTML += "Không được để trống thông tin!!!";
+          return false;
+        }else if(image == null){
+            div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        }else if(maloai == null){
+           div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        }else if(math == null){
+          div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        }else if(des == null || des == ""){
+          div.innerHTML += "Không được để trống thông tin!!!";
+          return false;
+        }else if(idx !== -1){
+          div.innerHTML += "Mã dòng rượu đã tồn tại!!!";
+          return false;
+        }
+  }
+
+
+  var listvalnv = []
+
+$.get("http://localhost:3000/quan-tri/api/all-nhanvien", (data) => {
+    listvalnv = data;
+
+});
+  
+
+function validateform_nv() {
+        $("#alert-nv").empty();
+        const div = document.getElementById("alert-nv");
+        var id = document.form_nv.id.value;
+        var surname = document.form_nv.surname.value;
+        var name = document.form_nv.name.value;
+        var sex = document.form_nv.sex.value;
+        var birthday = document.form_nv.birthday.value;
+        var address = document.form_nv.address.value;
+        var email = document.form_nv.email.value;
+        var phone = document.form_nv.phone.value;
+        var username = document.form_nv.username.value;
+        var idx = listvalnv.findIndex((val) => val.MANV === id);
+        var idx2 = listvalnv.findIndex((val)=> val.USERNAME === username);
+        var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+        if (id == null || id == "") {
+            div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        } else if (name == null || name == "") {
+            div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        }else if(surname == null || surname == ""){
+            div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        }else if(!sex){
+            div.innerHTML += "Không được để trống thông tin!!!";
+          return false;
+        }else if(birthday == null){
+            div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        }else if(address == null || address == ""){
+           div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        }else if(email == null || email == ""){
+          div.innerHTML += "Không được để trống thông tin!!!";
+            return false;
+        }else if(phone == null || phone == ""){
+          div.innerHTML += "Không được để trống thông tin!!!";
+          return false;
+        }else if(vnf_regex.test(phone) == false){
+          div.innerHTML += "Số điện thoại sai định dạng!!!";
+          return false;
+        }else if(username == null || username == ""){
+          div.innerHTML += "Không được để trống thông tin!!!";
+          return false;
+        }else if(idx !== -1){
+          div.innerHTML += "Mã nhân viên đã tồn tại!!!";
+          return false;
+        }else if(idx2 !== -1){
+          div.innerHTML += "Username đã tồn tại!!!";
+          return false;
+        }
+}
+</script>
+
+
+
+

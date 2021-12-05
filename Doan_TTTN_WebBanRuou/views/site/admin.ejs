@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ruou Ngon Store</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="eCommerce HTML Template Free Download" name="keywords" />
+    <meta content="eCommerce HTML Template Free Download" name="description" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="../lib/slick/slick.css" rel="stylesheet" />
+    <link href="../lib/slick/slick-theme.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet" />
+    <link href="../scss/style2.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <!-- Nav Bar Start -->
+    <div class="nav">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+          <a href="#" class="navbar-brand">MENU</a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-between"
+            id="navbarCollapse"
+          >
+            <div class="navbar-nav mr-auto">
+              
+            <div class="navbar-nav ml-auto">
+              <a href="/quan-tri/crud" class="nav-link">Quản trị</a> 
+              <div class="nav-item dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >Chào <%=user.ten%></a
+                >
+                <div class="dropdown-menu">
+                  <a href="/users/dang-xuat" class="dropdown-item">Đăng xuất</a>
+                </div>
+
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Nav Bar End -->
+
+    
+
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-wrap">
+      <div class="container-fluid">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+          <li class="breadcrumb-item active">Quản trị Admin</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- My Account Start -->
+    <!-- My Account Start -->
+    <div class="my-account">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            <div
+              class="nav flex-column nav-pills"
+              role="tablist"
+              aria-orientation="vertical"
+            >
+              <a
+                class="nav-link active"
+                id="dashboard-nav"
+                data-toggle="pill"
+                href="#dashboard-tab"
+                role="tab"
+                ><i class="fa fa-tachometer-alt"></i>Chào <%=user.ten%></a
+              >
+              <a
+                class="nav-link"
+                id="address-nav"
+                data-toggle="pill"
+                href="#nhacungcap"
+                role="tab"
+                ><i class="fa fa-map-marker-alt"></i>Tài khoản</a
+              >
+              
+              
+              
+              <a class="nav-link" href="/users/dang-xuat"
+                ><i class="fa fa-sign-out-alt"></i>Đăng Xuất</a>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="tab-content">
+              <div
+                class="tab-pane fade show active"
+                id="dashboard-tab"
+                role="tabpanel"
+                aria-labelledby="dashboard-nav"
+              >
+                <h4>Chào <%=user.ten%></h4>
+                <p>Đây là trang quản lý tài khoản của bạn.</p>
+              
+                
+              </div>
+              <div
+                class="tab-pane fade"
+                id="nhacungcap"
+                role="tabpanel"
+                aria-labelledby="orders-nav"
+              >
+              
+               <div class="container mt-3" >
+                <!-- Button to Open the Modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Thêm
+   </button>
+
+   <!-- The Modal -->
+   <div class="modal" id="myModal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+               <h4 class="modal-title">Thêm mới nhà cung cấp</h4>
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="container mt-3">
+                <form action="/admin/addncc" method="post" >
+                    <label for="maso">Mã Nhà cung cấp</label>
+                    <input type="text" name="mancc" class="form-control">
+                    <label for="name">Tên</label>
+                    <input type="text" name="ten" class="form-control">
+                    <label for="address">Địa chỉ</label>
+                    <input type="text" name="diachi" class="form-control">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" class="form-control">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="text" name="sdt" class="form-control">
+                    <input type="submit" value="Thêm mới" class="btn btn-primary mt-2"> <br>
+                </form>
+               </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+         </div>
+      </div>
+   </div>
+                <table class="table">
+                  <thead>
+                    <th>Mã số</th>
+                    <th>Tên</th>
+                    <th>Địa chỉ</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
+                    <th>Quản lí</th>
+                  </thead>
+                  <tbody id="listncc">
+                  </tbody>
+                </table>
+              </div> 
+              </div>
+              <div
+                class="tab-pane fade"
+                id="khach-hang"
+                role="tabpanel"
+                aria-labelledby="payment-nav"
+              >
+             
+              <a href="add.html" class="btn btn-info">Thêm mới</a>
+              <table class="table">
+                <thead>
+                  <th>Mã</th>
+                  <th>Họ Tên</th>
+                  <th>Địa chỉ</th>
+                  <th>Email</th>
+                  <th>Số điện thoại</th>
+                  <th>Quản lí</th>
+                </thead>
+                <tbody id="listkhachhang">
+                </tbody>
+              </table>
+            </div> 
+            <div
+                class="tab-pane fade"
+                id="nhan-vien"
+                role="tabpanel"
+                aria-labelledby="payment-nav"
+              >
+             
+              <a href="add.html" class="btn btn-info">Thêm mới</a>
+              <table class="table">
+                <thead>
+                  <th>Mã</th>
+                  <th>Họ Tên</th>
+                  <th>Địa chỉ</th>
+                  <th>Email</th>
+                  <th>Số điện thoại</th>
+                  <th>Quản lí</th>
+                </thead>
+                <tbody id="listnhanvien">
+                </tbody>
+              </table>
+            </div> 
+            <div
+                class="tab-pane fade"
+                id="catalog"
+                role="tabpanel"
+                aria-labelledby="address-nav"
+              >
+              <a href="add.html" class="btn btn-info">Thêm mới</a>
+              <table class="table">
+                <thead>
+                  <th>Mã</th>
+                  <th>Tên loại</th>
+                </thead>
+                <tbody id="listcatalog">
+                </tbody>
+              </table>
+                
+              </div>
+
+              <div
+                class="tab-pane fade"
+                id="thuong-hieu"
+                role="tabpanel"
+                aria-labelledby="address-nav"
+              >
+              <a href="add.html" class="btn btn-info">Thêm mới</a>
+              <table class="table">
+                <thead>
+                  <th>Mã</th>
+                  <th>Tên loại</th>
+                </thead>
+                <tbody id="listthuonghieu">
+                </tbody>
+              </table>
+                
+              </div>
+
+              <div
+                class="tab-pane fade"
+                id="product"
+                role="tabpanel"
+                aria-labelledby="address-nav"
+              >
+              <a href="add.html" class="btn btn-info">Thêm mới</a>
+              <table class="table">
+                <thead>
+                  <th>Mã</th>
+                  <th>Tên dòng</th>
+                  <th>Giá</th>
+                  <th>Trạng thái</th>
+                  <th>Hình ảnh</th>
+                  <th>Số lượng tồn</th>
+                  <th>Loại</th>
+                  <th>Quản lí</th>
+                </thead>
+                <tbody id="listproduct">
+                </tbody>
+              </table>
+                
+              </div>
+              </div>
+              
+              <div
+                class="tab-pane fade"
+                id="account-tab"
+                role="tabpanel"
+                aria-labelledby="account-nav"
+              >
+                <h4>Chi Tiết Tài Khoản</h4>
+                <form action="/users/update" method="post">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="ho">Họ</label>
+                      <input
+                        id="ho"
+                        name="ho"
+                        value="<%=user.ho%>"
+                        class="form-control"
+                        type="text"
+                        placeholder="Họ"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="ten">Tên</label>
+                      <input
+                        id="ten"
+                        name="ten"
+                        value="<%=user.ten%>"
+                        class="form-control"
+                        type="text"
+                        placeholder="Tên"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="phone">Số điện thoại</label>
+                      <input
+                        id="phone"
+                        name="phone"
+                        value="<%=user.phone%>"
+                        class="form-control"
+                        type="text"
+                        placeholder="Số Điện Thoại"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="email">Email</label>
+                      <input
+                        id="email"
+                        name="email"
+                        value="<%=user.email%>"
+                        class="form-control"
+                        type="text"
+                        placeholder="Email"
+                      />
+                    </div>
+                    <div class="col-md-12">
+                      <label for="address">Địa chỉ</label>
+                      <input
+                        name="address"
+                        value="<%=user.address%>"
+                        class="form-control"
+                        type="text"
+                        placeholder="Địa Chỉ"
+                      />
+                    </div>
+                    <div class="col-md-12">
+                      <button class="btn">Cập Nhật Tài Khoản</button>
+                      <br /><br />
+                    </div>
+                  </div>
+                </form>
+                <h4>Đổi Mật Khẩu</h4>
+                <form action="/users/doi-mat-khau" method="post">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <input
+                        name="password"
+                        class="form-control"
+                        type="password"
+                        placeholder="Mật khẩu hiện tại"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        name="newPassword"
+                        class="form-control"
+                        type="text"
+                        placeholder="Mật khẩu mới"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        name="confirmPassword"
+                        class="form-control"
+                        type="text"
+                        placeholder="Xác nhận mật khẩu mới"
+                      />
+                    </div>
+                    <div class="col-md-12">
+                      <button class="btn">Đổi mật khẩu</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- My Account End -->
+
+    <!-- My Account End -->
+
+    <!-- Footer Start -->
+
+    <!-- Footer End -->
+
+   
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/slick/slick.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../js/main.js"></script>
+  </body>
+</html>
+
+<script>
+
+
+
+const renderncc = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let ncc = data[i];
+      str += ` <tr>
+                      <td>${ncc.MANCC}</td>
+                      <td>${ncc.TENNCC}</td>
+                      <td>${ncc.DIACHI}</td>
+                      <td>${ncc.EMAIL}</td>
+                      <td>${ncc.SDT}</td>
+                      <td>
+                        <a href="edit.html" class="btn btn-primary">Sửa</a>
+                        <a href="/admin/delete/${ncc.MANCC}" class="btn btn-danger">Xóa</a>
+                      </td>
+                    </tr>`;
+    }
+    divNonNoiBat.innerHTML += str;
+  };
+
+
+  const renderkh = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let kh = data[i];
+      str += ` <tr>
+                      <td>${kh.MAKH}</td>
+                      <td>${kh.HO} ${kh.TEN}</td>
+                      <td>${kh.DIACHI}</td>
+                      <td>${kh.EMAIL}</td>
+                      <td>${kh.SDT}</td>
+                      <td>
+                        <a href="edit.html" class="btn btn-primary">Sửa</a>
+                        <a href="" class="btn btn-danger">Xóa</a>
+                      </td>
+                    </tr>`;
+    }
+    divNonNoiBat.innerHTML += str;
+  };
+
+  const rendernv = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let nv = data[i];
+      str += ` <tr>
+                      <td>${nv.MANV}</td>
+                      <td>${nv.HO} ${nv.TEN}</td>
+                      <td>${nv.DIACHI}</td>
+                      <td>${nv.EMAIL}</td>
+                      <td>${nv.SDT}</td>
+                      <td>
+                        <a href="edit.html" class="btn btn-primary">Sửa</a>
+                        <a href="" class="btn btn-danger">Xóa</a>
+                      </td>
+                    </tr>`;
+    }
+    divNonNoiBat.innerHTML += str;
+  };
+
+
+  const rendercat = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let cat = data[i];
+      str += ` <tr>
+                      <td>${cat.MALOAI}</td>
+                      <td>${cat.TENLOAI}</td>
+                      <td>
+                        <a href="edit.html" class="btn btn-primary">Sửa</a>
+                        <a href="" class="btn btn-danger">Xóa</a>
+                      </td>
+                    </tr>`;
+    }
+    divNonNoiBat.innerHTML += str;
+  };
+
+  const renderTH = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let th = data[i];
+      str += ` <tr>
+                      <td>${th.MATH}</td>
+                      <td>${th.TENTH}</td>
+                      <td>
+                        <a href="edit.html" class="btn btn-primary">Sửa</a>
+                        <a href="" class="btn btn-danger">Xóa</a>
+                      </td>
+                    </tr>`;
+    }
+    divNonNoiBat.innerHTML += str;
+  };
+
+  const rendersp = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let sp = data[i];
+      str += ` <tr>
+                      <td>${sp.MADONG}</td>
+                      <td>${sp.TENDONG}</td>
+                      <td>${sp.GIA}</td>
+                      <td>${sp.TRANGTHAI}</td>
+                      <td><img style="width:40%" src="../${sp.HINHANH}" alt=""></td>
+                      <td>${sp.SOLUONGTON}</td>
+                      <td>${sp.TENLOAI}</td>
+                      <td>
+                        <a href="edit.html" class="btn btn-primary">Sửa</a>
+                        <a href="" class="btn btn-danger">Xóa</a>
+                      </td>
+                    </tr>`;
+    }
+    divNonNoiBat.innerHTML += str;
+  };
+
+
+
+
+  window
+.fetch("http://localhost:3000/users/api/all-nhacungcap")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "listncc";
+  renderncc(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+window
+.fetch("http://localhost:3000/admin/api/all-khachhang")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "listkhachhang";
+  renderkh(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+window
+.fetch("http://localhost:3000/admin/api/all-nhanvien")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "listnhanvien";
+  rendernv(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+
+window
+.fetch("http://localhost:3000/admin/api/all-catalog")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "listcatalog";
+  rendercat(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+window
+.fetch("http://localhost:3000/admin/api/all-thuonghieu")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "listthuonghieu";
+  renderTH(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+window
+.fetch("http://localhost:3000/admin/api/all-SP")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "listproduct";
+  rendersp(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+
+
+ function xoa_dau(str) {
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "a");
+    str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "e");
+    str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "i");
+    str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "o");
+    str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "u");
+    str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "y");
+    str = str.replace(/Đ/g, "d");
+    str = str.split(" ").join("-");
+    return str;
+  }
+
+function replaceNameProduct(nameProduct) {
+    var newNameProduct = xoa_dau(nameProduct);
+    return newNameProduct;
+  }
+</script>
+
+
+
+

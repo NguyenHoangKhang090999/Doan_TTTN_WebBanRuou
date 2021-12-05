@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ruou Ngon Store</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="eCommerce HTML Template Free Download" name="keywords" />
+    <meta content="eCommerce HTML Template Free Download" name="description" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="..lib/slick/slick.css" rel="stylesheet" />
+    <link href="..lib/slick/slick-theme.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet" />
+    <link href="../scss/style2.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Top bar Start -->
+    <div class="top-bar">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+            <i class="fa fa-envelope"></i>HoangKhang1999ag@gmail.com
+          </div>
+          <div class="col-sm-6"><i class="fa fa-phone-alt"></i>0338744192</div>
+        </div>
+      </div>
+    </div>
+    <!-- Top bar End -->
+
+    <!-- Nav Bar Start -->
+    <div class="nav">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+          <a href="#" class="navbar-brand">MENU</a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-between"
+            id="navbarCollapse"
+          >
+            <div class="navbar-nav mr-auto">
+              <a href="/" class="nav-item nav-link">Trang Chủ</a>
+              <a href="/san-pham" class="nav-item nav-link">Sản Phẩm</a>
+              <!-- <a href="product-detail.html" class="nav-item nav-link">Product Detail</a> -->
+              <a href="/users/tai-khoan" class="nav-item nav-link"
+                >Tài khoản của bạn</a
+              >
+              </div>
+            </div>
+            <div class="navbar-nav ml-auto">
+              <div class="nav-item dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  ><%=user.email%></a
+                >
+                <div class="dropdown-menu">
+                  <a href="/users/dang-xuat" class="dropdown-item">Đăng xuất</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Nav Bar End -->
+
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-wrap">
+      <div class="container-fluid">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="/san-pham">Products</a></li>
+          <li class="breadcrumb-item active">Checkout</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Checkout Start -->
+    <div class="checkout">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="checkout-inner">
+              <div class="billing-address">
+                <h2>Thông Tin Đặt Hàng</h2>
+                <div class="custom-control custom-radio">
+                  <input
+                    type="radio"
+                    class="custom-control-input"
+                    id="info-1"
+                    name="info"
+                    onclick="renderInforOrder()"
+                  />
+                  <label class="custom-control-label" for="info-1"
+                    >Địa chỉ mặc định</label
+                  >
+                </div>
+                <p id="order-surname1" value="<%=user.ho%>">
+                  Họ và Tên: <span><%=user.ho%> <%=user.ten%></span>
+                </p>
+                <p id="order-name1" value="<%=user.ten%>">
+                </p>
+                <p id="order-phone1" value="<%=user.phone%>">
+                  Số điện thoại: <span><%=user.phone%></span>
+                </p>
+                <p id="order-email1" value="<%=user.email%>">
+                  Email: <span><%=user.email%></span>
+                </p>
+                <p id="order-address1" value="<%=user.address%>">
+                  Địa chỉ giao hàng: <span><%=user.address%></span>
+                </p>
+
+                
+
+                
+                <div class="custom-control custom-radio">
+                  <input
+                    type="radio"
+                    class="custom-control-input"
+                    id="info-2"
+                    name="info"
+                    onclick="renderInforOrder()"
+                  />
+                  <label class="custom-control-label" for="info-2"
+                    >Địa chỉ khác</label
+                  >
+                  <br>
+                  
+                </div>
+                <form name="myform" id="form-info-order" action="/check-out/payment" method="post" onsubmit="return validateform()">
+                  <div class="row" id="checkout-info">
+                    <!-- <div class="col-md-6">
+                      <input
+                        class="form-control"
+                        name="ho"
+                        id="order-surname2"
+                        type="text"
+                        placeholder="Họ"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        class="form-control"
+                        name="ten"
+                        id="order-name2"
+                        type="text"
+                        placeholder="Tên"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        class="form-control"
+                        name="sdt"
+                        id="order-phone2"
+                        type="text"
+                        placeholder="Số điện thoại"
+                      />
+                    </div>
+                    <div class="col-md-12">
+                      <input
+                        class="form-control"
+                        name="diachi"
+                        id="order-address2"
+                        type="text"
+                        placeholder="Địa chỉ giao hàng"
+                      />
+                    </div>
+                    <button>Tiến hành đặt hàng</button> -->
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="checkout-inner">
+              <div class="checkout-sum" id="sum-checkout">
+                <!-- <div class="checkout-summary">
+                  <h1>Tổng Giỏ Hàng</h1>
+                  <p class="sub-total">Tạm tính<span>1.000.000 đ</span></p>
+                  <p class="ship-cost">Phí ship<span>30.000 đ</span></p>
+                  <h2>Tổng cộng<span>1.030.000 đ</span></h2>
+                </div> -->
+              </div>
+
+              <div class="checkout-payment">
+                <div class="payment-methods">
+                  <h1>Phương thức thanh toán</h1>
+                  <div class="payment-method">
+                    <div class="custom-control custom-radio">
+                      <input
+                        type="radio"
+                        class="custom-control-input"
+                        id="payment-1"
+                        name="payment"
+                        checked="true"
+                        onclick=" payment()"
+                      />
+                      <label class="custom-control-label" for="payment-1"
+                        >Paypal</label
+                      >
+                    </div>
+                    <div class="payment-content" id="payment-1-show">
+                      <p>Thanh toán trực tuyến qua Paypal</p>
+                    </div>
+                  </div>
+                  <div class="payment-method">
+                    <div class="custom-control custom-radio">
+                      <input
+                        type="radio"
+                        class="custom-control-input"
+                        id="payment-2"
+                        name="payment"
+                        onclick=" payment()"
+                      />
+                      <label class="custom-control-label" for="payment-2"
+                        >Ship COD</label
+                      >
+                    </div>
+                    <div class="payment-content" id="payment-2-show">
+                      <p>Thanh toán khi nhận hàng</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Checkout End -->
+
+    <!-- Footer Start -->
+    <div class="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h2>Liên Hệ</h2>
+              <div class="contact-info">
+                <p>
+                  <i class="fa fa-map-marker"></i>
+                </p>
+                <p><i class="fa fa-envelope"></i>HoangKhang1999ag@gmail.com</p>
+                <p><i class="fa fa-phone"></i>+0338744192</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h2>Theo Dõi Tôi</h2>
+              <div class="contact-info">
+                <div class="social">
+                  <a href=""><i class="fab fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/ybx1802"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a href="https://www.linkedin.com/in/huy-tran-57777b202/"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                  <a href="https://www.instagram.com/huy_jr18"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                  <a
+                    href="https://www.youtube.com/channel/UCctcteJFmH4Wxc8npHW9Cog"
+                    ><i class="fab fa-youtube"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h2>Thông Tin Cửa Hàng</h2>
+              <ul>
+                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="#">Chính sách bảo mật</a></li>
+                <li><a href="#">Hình thức vận chuyển</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h2>Thông Tin Mua Hàng</h2>
+              <ul>
+                <li><a href="#">Chính sách thanh toán</a></li>
+                <li><a href="#">Chính sách vận chuyển</a></li>
+                <li><a href="#">Chính sách hoàn trả</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row payment align-items-center">
+          <div class="col-md-6">
+            <div class="payment-method">
+              <h2>Nhận thanh toán bằng:</h2>
+              <img src="../img/payment-method.png" alt="Payment Method" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="payment-security">
+              <h2>Chứng chỉ bảo mật:</h2>
+              <img src="../img/godaddy.svg" alt="Payment Security" />
+              <img src="../img/norton.svg" alt="Payment Security" />
+              <img src="../img/ssl.svg" alt="Payment Security" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Footer Bottom Start -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 copyright">
+            <p>
+              Copyright &copy;
+              <a href="https:www.facebook.com/ybx1802">Ruou Ngon Store</a>. All
+              Rights Reserved
+            </p>
+          </div>
+
+          <div class="col-md-6 template-by">
+            <p>Developed By <a href="https://htmlcodex.com">Khang Nguyen</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Bottom End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/slick/slick.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../js/main.js"></script>
+  </body>
+</html>
+
+<script>
+ 
+  function renderInforOrder() {
+    $(".checkout-info").empty();
+    const div = document.getElementById("checkout-info");
+
+    let cartnow = localStorage.getItem("keycart");
+    console.log(cartnow);
+    let str = ``;
+    if (document.getElementById("info-2").checked) {
+      str = `<div class="checkout-info">
+              <div class="col-md-6">
+                <span style="color:red">(*)</span>
+                      <input
+                        class="form-control"
+                        name="ho"
+                        id="order-surname2"
+                        type="text"
+                        placeholder="Họ"
+                        style="width:300px"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <span style="color:red">(*)</span>
+                      <input
+                        class="form-control"
+                        name="ten"
+                        id="order-name2"
+                        type="text"
+                        placeholder="Tên"
+                        style="width:300px"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <span style="color:red">(*)</span>
+                      <input
+                        class="form-control"
+                        name="sdt"
+                        id="order-phone2"
+                        type="text"
+                        placeholder="Số điện thoại"
+                        style="width:300px"
+                      />
+                    </div>
+                    <div class="col-md-12">
+                      <span style="color:red">(*)</span>
+                      <input
+                        class="form-control"
+                        name="diachi"
+                        id="order-address2"
+                        type="text"
+                        placeholder="Địa chỉ giao hàng"
+                        style="width:700px;
+                        height:70px"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        class="form-control "
+                        name="makh"
+                        id="order-surname2"
+                        type="hidden"
+                        placeholder="Họ"
+                        value="<%=user.id%>"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        class="form-control "
+                        name="arrCart"
+                        id="order-surname2"
+                        type="hidden"
+                        placeholder="Họ"
+                        value='${cartnow}'
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        class="form-control "
+                        name="note"
+                        id="order-surname2"
+                        type="text"
+                        placeholder="Ghi chú"
+                        style="width:700px;
+                        height:70px"
+                      />
+                    </div>
+                    <p>Chọn quận (Thành Phố Hồ Chí Minh)</p>
+                  <select id="district" name="district">
+                    </select>
+                    <br>
+                    <input class="btn-checkout" type="submit" value="Đặt hàng">
+                  </div>`;
+    } else if (document.getElementById("info-1").checked) {
+      str = `<div class="checkout-info">
+             <div class="col-md-6">
+                      <input
+                        class="form-control "
+                        name="ho"
+                        id="order-surname2"
+                        type="hidden"
+                        placeholder="Họ"
+                        value="<%=user.ho%>"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        class="form-control"
+                        name="ten"
+                        id="order-name2"
+                        type="hidden"
+                        placeholder="Tên"
+                        value="<%=user.ten%>"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        class="form-control"
+                        name="sdt"
+                        id="order-phone2"
+                        type="hidden"
+                        placeholder="Số điện thoại"
+                        value="<%=user.phone%>"
+                      />
+                    </div>
+                    <div class="col-md-12">
+                      <input
+                        class="form-control"
+                        name="diachi"
+                        id="order-address2"
+                        type="hidden"
+                        placeholder="Địa chỉ giao hàng"
+                        value="<%=user.address%>"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        class="form-control "
+                        name="makh"
+                        id="order-surname2"
+                        type="hidden"
+                        placeholder="Họ"
+                        value="<%=user.id%>"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        class="form-control "
+                        name="arrCart"
+                        id="order-surname2"
+                        type="hidden"
+                        placeholder="listarr"
+                        value='${cartnow}'
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        class="form-control "
+                        name="note"
+                        id="order-surname2"
+                        type="text"
+                        placeholder="Ghi chú"
+                        style="width:700px;
+                        height:70px"
+                      />
+                    </div>
+                    <p>Chọn quận (Thành Phố Hồ Chí Minh)</p>
+                  <select id="district" name="district">
+                    </select>
+                    <br>
+                    <input class="btn-checkout" type="submit" value="Đặt hàng">
+                  </div>`;
+    }
+
+    window
+.fetch("http://localhost:3000/quan-tri//api/district")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "district";
+  renderdistrict(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+    div.innerHTML += str;
+  }
+  render_cart_sum();
+  function render_cart_sum() {
+    $(".checkout-sum").empty();
+    const divsumcart = document.getElementById("sum-checkout");
+
+    var cartnow = JSON.parse(localStorage.getItem("keycart"));
+    const total1 = cartnow.reduce(
+      (acc, val) =>
+        acc + ((val.GIA * (100 - val.PHANTRAMGIAM)) / 100) * val.quantity,
+      0
+    );
+    var shipping = 0;
+
+    if (total1 < 200) {
+      shipping = cartnow.length * 2;
+    }
+
+    var total2 = total1 + shipping;
+
+    let str = ``;
+    if (total1 >= 200) {
+      str += `
+                    <div class="checkout-content">
+                      <h1>Thống kê giỏ hàng</h1>
+                      <p>Tổng tiền sản phẩm: <span>${total1.toFixed(2)} $</span></p>
+                      <p>Phí ship: <span>Miễn phí</span></p>
+                      <h2>Tổng cộng: <span>${total2.toFixed(2)} $</span></h2>
+                    </div>
+                `;
+    } else {
+      str += `
+                    <div class="checkout-content">
+                      <h1>Thống kê giỏ hàng</h1>
+                      <p>Tổng tiền sản phẩm: <span>${total1.toFixed(2)} $</span></p>
+                      <p>Phí ship: <span>${shipping.toLocaleString(
+                        "en-US"
+                      )} $</span></p>
+                      <h2>Tổng cộng: <span>${total2.toFixed(2)} $</span></h2>
+                    </div>
+                  `;
+    }
+    divsumcart.innerHTML += str;
+  }
+
+  function payment() {
+    
+    if (
+      !document.getElementById("payment-1").checked &&
+      !document.getElementById("payment-2").checked
+    ) {
+      window.alert("Vui lòng chọn phương thức thanh toán!!!");
+    } else {
+      if (document.getElementById("payment-1").checked) {
+        document.getElementById("form-info-order").setAttribute('action','/check-out/payment');
+    
+      } else if (document.getElementById("payment-2").checked) {
+        document.getElementById("form-info-order").setAttribute('action','/check-out/orderShipCode');
+    
+      }
+    }
+  }
+
+
+  const renderdistrict = (data, id) => {
+    const div = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let ds = data[i];
+      str += `<option value="${ds.MAQUAN}">${ds.TENQUAN}</option>`;
+    }
+    div.innerHTML += str;
+  };
+
+function phonenumber(inputtxt){
+  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  if(inputtxt.value.match(phoneno))
+     {
+	   return true;      
+	 }
+   else
+     {
+	   alert("Not a valid Phone Number!!!");
+	   return false;
+     }
+}
+
+
+  function validateform() {
+        var ho = document.myform.ho.value;
+        var ten = document.myform.ten.value;
+        var sdt = document.myform.sdt.value;
+        var diachi = document.myform.diachi.value;
+        var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+        if (ho == null || ho == "") {
+            alert("Họ và tên không được để trống!!!");
+            return false;
+        } else if (ten == null || ten == "") {
+            alert("Họ và tên không được để trống!!!");
+            return false;
+        }else if(sdt == null || sdt == "" ){
+          alert("Mời nhập số điện thoại!!!");
+          return false;
+        }else if(diachi == null || diachi == ""){
+          alert("Địa chỉ không được để trống!!!");
+          return false;
+        }else if(vnf_regex.test(phone) == false){
+          alert("Số điện thoại sai định dạng!!!");
+          return false;
+        }
+  }
+
+
+
+  window
+.fetch("http://localhost:3000/quan-tri//api/district")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "district";
+  renderdistrict(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+</script>

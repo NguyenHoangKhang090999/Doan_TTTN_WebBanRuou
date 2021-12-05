@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Ruou Ngon Store</title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="eCommerce HTML Template Free Download" name="keywords" />
+    <meta content="eCommerce HTML Template Free Download" name="description" />
+
+    <!-- Favicon -->
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="lib/slick/slick.css" rel="stylesheet" />
+    <link href="lib/slick/slick-theme.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="scss/style2.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Nav Bar Start -->
+    <!-- <div class="nav">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+          <a href="#" class="navbar-brand">MENU</a>
+          <button
+            type="button"
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-between"
+            id="navbarCollapse"
+          >
+            <div class="navbar-nav mr-auto"> -->
+    <!-- <a href="/" class="nav-item nav-link active">Trang Chủ</a>
+              <a href="/san-pham" class="nav-item nav-link">Sản Phẩm</a> -->
+    <!-- <a href="product-detail.html" class="nav-item nav-link">Product Detail</a> -->
+    <!-- <a href="/gio-hang/" class="nav-item nav-link">Giỏ Hàng</a>
+              <a href="/thanh-toan" class="nav-item nav-link">Thanh Toán</a>
+              <a href="/users/tai-khoan" class="nav-item nav-link"
+                >Tài khoản của bạn</a
+              > -->
+    <!-- <div class="nav-item dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >Trang khác</a
+                >
+                <div class="dropdown-menu">
+                  <a href="/wishlist" class="dropdown-item"
+                    >Sản phẩm đã thích</a
+                  >
+                  <a href="/lien-he" class="dropdown-item">Liên hệ</a>
+                </div> -->
+    <!-- </div>
+            </div>
+            <div class="navbar-nav ml-auto">
+              <div class="nav-item dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  >Tài khoản</a
+                >
+                <div class="dropdown-menu" id="sign-in">
+                  <a href="/users/dang-nhap" class="dropdown-item">Đăng nhập</a>
+                  <a href="/users/dang-ky" class="dropdown-item">Đăng ký</a>
+                  <a href="/users/dang-nhap-admin" class="dropdown-item"
+                    >Admin</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div> -->
+    <!-- Nav Bar End -->
+    <div class="header">
+      <div class="container">
+        <div class="logo">
+          <a href=""
+            ><img
+              src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/logo_liquor.png.webp"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="center-bar">
+          <nav>
+            <ul>
+              <li>
+                <a href="">Trang chủ</a>
+              </li>
+              <li><a href="/san-pham">Sản phẩm</a></li>
+              <li><a href="/gio-hang">Giỏ hàng</a></li>
+              <li><a href="users/tai-khoan">Tài khoản</a></li>
+              <!-- <li><a href="">Blog</a></li> -->
+
+              <li class="sign-in">
+                <!-- <a href="/users/dang-nhap">Sign in</a> -->
+                <div class="dropdown-menu" id="sign-in">
+                  <a href="/users/dang-nhap" class="dropdown-item">Đăng nhập</a>
+                  <a href="/users/dang-ky" class="dropdown-item">Đăng ký</a>
+                  <a href="/users/dang-nhap-admin" class="dropdown-item"
+                    >Admin</a
+                  >
+                </div>
+              </li>
+              <!-- <li><a href="/users/dang-nhap-admin">Admin</a></li> -->
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar Start -->
+    <div class="bottom-bar">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-3">
+            <div class="logo">
+              <a href="/"> </a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="search">
+              <input type="text" placeholder="Search" />
+              <button><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="user">
+              <a href="/wishlist" class="btn wishlist">
+                <i class="fa fa-heart"></i>
+                <span>(0)</span>
+              </a>
+              <a href="/gio-hang" class="btn cart">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="cart-number">(0)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Bar End -->
+
+    <main id="main">
+      <!-- Main Slider Start -->
+
+      <div class="types">
+        <div class="container">
+          <div class="Liquor">
+            <a href=""
+              ><img
+                src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/brian-jones.jpg.webp"
+                alt=""
+            /></a>
+            <div class="content">
+              <h1>Liquor</h1>
+              <span class="amounts">11 items</span>
+            </div>
+          </div>
+
+          <div class="Wine">
+            <a href=""
+              ><img
+                src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/joseph-costa.jpg.webp"
+                alt=""
+            /></a>
+            <div class="content">
+              <h1>Wine</h1>
+              <span class="amounts">11 items</span>
+            </div>
+          </div>
+
+          <div class="Beer">
+            <a href=""
+              ><img
+                src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/ratheesh-chandran.jpg.webp"
+                alt=""
+            /></a>
+            <div class="content">
+              <h1>Beer</h1>
+              <span class="amounts">11 items</span>
+            </div>
+          </div>
+
+          <div class="Accessories">
+            <a href=""
+              ><img
+                src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/two-elegant.jpg.webp"
+                alt=""
+            /></a>
+            <div class="content">
+              <h1>Accessories</h1>
+              <span class="amounts">11 items</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+              <nav class="navbar bg-light">
+                <ul class="navbar-nav">
+                  <% for (cat of listCat) { %>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/danh-muc/<%=cat.TENLOAI%>"
+                      ><i class="fa fa-wine-bottle"></i>Rượu <%= cat.TENLOAI
+                      %></a
+                    >
+                  </li>
+                  <% } %>
+                </ul>
+              </nav>
+            </div>
+            <div class="col-md-6">
+              <div class="header-slider normal-slider">
+                <div class="header-slider-item">
+                  <img
+                    src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/alec-favale-KIqw3GIhdHA-unsplash-500x367.jpg.webp"
+                    alt="Slider Image"
+                  />
+                  <div class="header-slider-caption">
+                    <p></p>
+                    <a class="btn" href="/danh-muc/AGV"
+                      ><i class="fa fa-shopping-cart"></i>Shop Now</a
+                    >
+                  </div>
+                </div>
+                <div class="header-slider-item">
+                  <img
+                    src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/felix-w-aNMMayob3pw-unsplash-500x367.jpg.webp"
+                    alt="Slider Image"
+                  />
+                  <div class="header-slider-caption">
+                    <p></p>
+                    <a class="btn" href="/danh-muc/Shoei"
+                      ><i class="fa fa-shopping-cart"></i>Shop Now</a
+                    >
+                  </div>
+                </div>
+                <div class="header-slider-item">
+                  <img
+                    src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/5_VerresCarafe-copie-1024x0-1-500x367.jpg.webp"
+                    alt="Slider Image"
+                  />
+                  <div class="header-slider-caption">
+                    <p></p>
+                    <a class="btn" href="/danh-muc/Royal"
+                      ><i class="fa fa-shopping-cart"></i>Shop Now</a
+                    >
+                  </div>
+                </div>
+
+                <div class="header-slider-item">
+                  <img
+                    src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/mika-houtmeyers-ttNVVqxg_xE-unsplash-500x367.jpg.webp"
+                    alt="Slider Image"
+                  />
+                  <div class="header-slider-caption">
+                    <p></p>
+                    <a class="btn" href="/danh-muc/Royal"
+                      ><i class="fa fa-shopping-cart"></i>Shop Now</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="header-img">
+                <div class="img-item">
+                  <img
+                    src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/brian-jones.jpg.webp"
+                  />
+                  <a class="img-text" href="">
+                    <p>Không gì là không thể!</p>
+                  </a>
+                </div>
+                <div class="img-item">
+                  <img
+                    src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/joseph-costa.jpg.webp"
+                  />
+                  <a class="img-text" href="">
+                    <p></p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Main Slider End -->
+
+      <!-- Brand Start -->
+      <div class="brand">
+        <div class="container-fluid">
+          <div class="brand-slider">
+            <div class="brand-item">
+              <a href="/danh-muc/agv"><img src="img/hennessy.jpg" alt="" /></a>
+            </div>
+            <div class="brand-item">
+              <a href="/danh-muc/shoei"><img src="img/bacardi.jpg" alt="" /></a>
+            </div>
+            <div class="brand-item">
+              <a href="/danh-muc/arai"><img src="img/chivas.jpg" alt="" /></a>
+            </div>
+            <div class="brand-item">
+              <a href="/danh-muc/torc"><img src="img/camus.jpg" alt="" /></a>
+            </div>
+            <div class="brand-item">
+              <a href="/danh-muc/yohe"><img src="img/ciroc.png" alt="" /></a>
+            </div>
+            <div class="brand-item">
+              <a href="/danh-muc/yohe"
+                ><img src="img/raynal.jpg" alt="rượu raynal"
+              /></a>
+            </div>
+            <div class="brand-item">
+              <a href="/danh-muc/yohe"><img src="img/martin.jpg" alt="" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Brand End -->
+      <!-- Category Start-->
+      <div class="category">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="category-item ch-400">
+                <img src="img/banner8.jpg" />
+                <a class="category-name" href="">
+                  <p>Nothing is impossible</p>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="category-item ch-250">
+                <img src="img/banner3.jpg" />
+                <a class="category-name" href="">
+                  <p>Ride or die</p>
+                </a>
+              </div>
+              <div class="category-item ch-150">
+                <img src="img/banner9.jpg" />
+                <a class="category-name" href="">
+                  <p>I love scene beautfiull</p>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="category-item ch-150">
+                <img src="img/banner10.jpg" />
+                <a class="category-name" href="">
+                  <p>My brothers and me</p>
+                </a>
+              </div>
+              <div class="category-item ch-250">
+                <img src="img/banner5.jpg" />
+                <a class="category-name" href="">
+                  <p>
+                    He said: "One day, you'll leave this world behind so live a
+                    life you will remember"
+                  </p>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="category-item ch-400">
+                <img src="img/banner11.jpg" />
+                <a class="category-name" href="">
+                  <p>
+                    “A great love is not one who loves many, but one who loves
+                    one woman for life”
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Category End-->
+      <!-- Feature Start-->
+      <div class="feature">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-lg-3 col-md-6 feature-col">
+              <div class="feature-content">
+                <i class="fab fa-cc-mastercard"></i>
+                <h2>Bảo Mật Thanh Toán</h2>
+                <p>Website cam kết bảo mật thông tin khách hàng</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 feature-col">
+              <div class="feature-content">
+                <i class="fa fa-truck"></i>
+                <h2>Vận Chuyển Toàn Quốc</h2>
+                <p>Freeship toàn quốc, có hỗ trợ SHIP CODE cho khách hàng</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 feature-col">
+              <div class="feature-content">
+                <i class="fa fa-sync-alt"></i>
+                <h2>90 Ngày Đổi Trả</h2>
+                <p>
+                  Cho phép khách hàng được đổi trả sản phẩm trong vòng 90 ngày
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 feature-col">
+              <div class="feature-content">
+                <i class="fa fa-comments"></i>
+                <h2>Tư Vấn 24/7</h2>
+                <p>
+                  Luôn có nhân viên tư vấn online 24/24. Hỗ trợ chăm sóc khách
+                  hàng
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Feature End-->
+
+      <!-- Call to Action Start -->
+      <div class="call-to-action">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h1>Liên hệ với tôi qua Email</h1>
+            </div>
+            <div class="col-md-6">
+              <a href="">HoangKhang1999ag@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Call to Action End -->
+
+      <!-- Featured Product Start BY API -->
+      <div class="featured-product product">
+        <div class="container-fluid">
+          <div class="section-header">
+            <h1>HÀNG HOT!!!</h1>
+          </div>
+          <div id="non-noi-bat"></div>
+        </div>
+      </div>
+      <!-- Featured Product End BY API -->
+
+      <!-- Newsletter Start -->
+      <div class="newsletter">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <h1>Đăng ký để nhận tin tức mới nhất</h1>
+            </div>
+            <div class="col-md-6">
+              <div class="form">
+                <input type="email" placeholder="Nhập email..." />
+                <button>Gửi</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Newsletter End -->
+
+      <!-- Recent Product Start -->
+      <!-- <div class="recent-product product">
+        <div class="container-fluid">
+          <div class="section-header">
+            <h1>HÀNG MỚI VỀ</h1>
+          </div>
+          <div id="non-moi-ve" class="row align-items-center"></div>
+        </div>
+      </div> -->
+      <!-- Recent Product End -->
+
+      <!--Khuyen mai-->
+      <div class="recent-product product">
+        <div class="container-fluid">
+          <div class="section-header">
+            <h1>KHUYẾN MÃI KHỦNG!!!</h1>
+          </div>
+          <div id="hang-khuyen-mai" class="row align-items-center"></div>
+        </div>
+      </div>
+
+      <!--End of Khuyen mai-->
+
+      <!--Banner-->
+      <div class="Liqueur-spirit">
+        <div class="container">
+          <div class="content">
+            <h1>Liqueur & Spirits</h1>
+            <span
+              >In addition to the 2 large categories of Wine and Whiskey, you
+              will quickly discover the world of other drinks in this category
+              with just one click.</span
+            >
+          </div>
+
+          <div class="wine-list">
+            <div class="items">
+              <a href="/danh-muc/Vodka"
+                ><img
+                  src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/img-drinks-1.png.webp"
+                  alt=""
+              /></a>
+              <span>Vodka</span>
+            </div>
+            <div class="items">
+              <a href="/danh-muc/Cognag"
+                ><img
+                  src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/img-drinks-2.png.webp"
+                  alt=""
+              /></a>
+              <span>Cognac</span>
+            </div>
+            <div class="items">
+              <a href="/danh-muc/Grappa"
+                ><img
+                  src="https://hn.arrowpress.net/lusion/wp-content/uploads/elementor/thumbs/img-drinks-3-p3rffircgjwa94zlmt189ah13wa2vgxao261ketli8.png"
+                  alt=""
+              /></a>
+              <span>Grappa</span>
+            </div>
+            <div class="items">
+              <a href="/danh-muc/Scotch"
+                ><img
+                  src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/img-drinks-4.png.webp"
+                  alt=""
+              /></a>
+              <span>Scotch</span>
+            </div>
+            <div class="items">
+              <a href="/danh-muc/Tequilla"
+                ><img
+                  src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/img-drinks-5.png.webp"
+                  alt=""
+              /></a>
+              <span>Tequila</span>
+            </div>
+            <div class="items">
+              <a href="/danh-muc/Rum"
+                ><img
+                  src="https://hn.arrowpress.net/lusion/wp-content/uploads/2020/11/img-drinks-6.png.webp"
+                  alt=""
+              /></a>
+              <span>Rum</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--End of Banner-->
+
+      <!--intro-->
+      <div class="banner">
+        <div class="container">
+          <div class="timer">
+            <div class="content">
+              <span class="first">DEALS OF THE MONTH</span>
+              <h1>Savvy Savings</h1>
+              <button>Shop now</button>
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="top-right">
+              <div class="content">
+                <h1>15 Whisky Cocktail You'll Fall For</h1>
+                <span
+                  >We partnered with talented Ontario bartenders to create this
+                  autumn-inspired whisky cocktail collection.</span
+                ><br />
+                <button>Get the recipes</button>
+              </div>
+            </div>
+
+            <div class="bottom-right">
+              <div class="Sale">
+                <div class="content">
+                  <span>LOCALLY MADE</span>
+                  <h1>Sale Now</h1>
+                  <button>Shop now</button>
+                </div>
+              </div>
+
+              <div class="vintages">
+                <div class="content">
+                  <span>NEW ARRIVALS</span>
+                  <h1>Vintages</h1>
+                  <button>Shop now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end of intro-->
+    </main>
+
+    <!-- Footer Start -->
+    <div class="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h2>Liên Hệ</h2>
+              <div class="contact-info">
+                <p><i class="fa fa-map-marker"></i>Thành phố Hồ Chí Minh</p>
+                <p><i class="fa fa-envelope"></i>HoangKhang1999ag</p>
+                <p><i class="fa fa-phone"></i>+0333 744 192</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h2>Theo Dõi Tôi</h2>
+              <div class="contact-info">
+                <div class="social">
+                  <a href=""><i class="fab fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/ybx1802"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a href="https://www.linkedin.com/in/huy-tran-57777b202/"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                  <a href="https://www.instagram.com/huy_jr18"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                  <a
+                    href="https://www.youtube.com/channel/UCctcteJFmH4Wxc8npHW9Cog"
+                    ><i class="fab fa-youtube"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h2>Thông Tin Cửa Hàng</h2>
+              <ul>
+                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="#">Chính sách bảo mật</a></li>
+                <li><a href="#">Hình thức vận chuyển</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-widget">
+              <h2>Thông Tin Mua Hàng</h2>
+              <ul>
+                <li><a href="#">Chính sách thanh toán</a></li>
+                <li><a href="#">Chính sách vận chuyển</a></li>
+                <li><a href="#">Chính sách hoàn trả</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row payment align-items-center">
+          <div class="col-md-6">
+            <div class="payment-method">
+              <h2>Nhận thanh toán bằng:</h2>
+              <img src="img/payment-method.png" alt="Payment Method" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="payment-security">
+              <h2>Chứng chỉ bảo mật:</h2>
+              <img src="img/godaddy.svg" alt="Payment Security" />
+              <img src="img/norton.svg" alt="Payment Security" />
+              <img src="img/ssl.svg" alt="Payment Security" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/slick/slick.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="../js/giohang.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </body>
+</html>
+
+<script>
+  const xuLyDuLieu = (data, id) => {
+    const divNonNoiBat = document.getElementById(id);
+    const cartarray = JSON.parse(localStorage.getItem("keycart"));
+    $(".cart-number").text(cartarray.length);
+    divNonNoiBat.setAttribute(
+      "class",
+      "row align-items-center product-slider product-slider-4"
+    );
+    let str = ``;
+    for (i in data) {
+      let product = data[i];
+      let newName = replaceNameProduct(product.TENDONG).toLowerCase();
+
+      if (product.PHANTRAMGIAM != null) {
+        let discount = (product.GIA * product.PHANTRAMGIAM) / 100;
+        discount = discount.toFixed(2);
+        let nowprice = product.GIA - discount;
+        nowprice = nowprice.toFixed(2);
+        str += `<div class="col-lg-3 mb-5">
+                  <div class="product-item" data-id="${product.MADONG}">
+                      <div class="product-title">
+                        <p style="background:#FF9D25;padding:2px;border-radius:2px;position:absolute">-${
+                          product.PHANTRAMGIAM
+                        }%</p>
+                        <br>
+                          <a class="slug" href="/san-pham/${newName}">${
+          product.TENDONG
+        }</a>
+                          <a class="mota"> ${product.MOTA} </a>
+                          <div class="ratting">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                          </div>
+                      </div>
+                      <div class="product-image">
+                          <a href="/san-pham/${replaceNameProduct(
+                            product.TENDONG
+                          )}">
+                              <img src="${product.HINHANH}" alt="Product Image">
+                          </a>
+                          <div class="product-action">
+                              <button class="addcart"><i class="fa fa-cart-plus"></i></button>
+                              <a href="/wishlist/luu/${
+                                product.MADONG
+                              }"><i class="fa fa-heart"></i></a>
+                              <a href="/san-pham/${replaceNameProduct(
+                                product.TENDONG
+                              ).toLowerCase()}"><i class="fa fa-search"></i></a>
+                          </div>
+                      </div>
+                      <div class="product-price">
+                          <h3><del>${product.GIA.toLocaleString(
+                            "en-US"
+                          )}</del></h3>
+                          <h3> ${nowprice.toLocaleString(
+                            "en-US"
+                          )}<span> $</span></h3>
+                          <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Mua Ngay</a>
+                      </div>
+                  </div>
+              </div>`;
+      } else {
+        str += `<div class="col-lg-3 mb-5">
+                  <div class="product-item" data-id="${product.MADONG}">
+                      <div class="product-title">
+                        <br>
+                          <a class="slug" href="/san-pham/${newName}">${
+          product.TENDONG
+        }</a>
+                          <a class="mota"> ${product.MOTA} </a>
+                          <div class="ratting">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                          </div>
+                      </div>
+                      <div class="product-image">
+                          <a href="/san-pham/${replaceNameProduct(
+                            product.TENDONG
+                          )}">
+                              <img src="${product.HINHANH}" alt="Product Image">
+                          </a>
+                          <div class="product-action">
+                              <button class="addcart"><i class="fa fa-cart-plus"></i></button>
+                              <a href="/wishlist/luu/${
+                                product.MADONG
+                              }"><i class="fa fa-heart"></i></a>
+                              <a href="/san-pham/${replaceNameProduct(
+                                product.TENDONG
+                              ).toLowerCase()}"><i class="fa fa-search"></i></a>
+                          </div>
+                      </div>
+                      <div class="product-price">
+                          <h3>${product.GIA.toLocaleString(
+                            "en-US"
+                          )}<span> $</span></h3>
+                          <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Mua Ngay</a>
+                      </div>
+                  </div>
+              </div>`;
+      }
+    }
+    divNonNoiBat.innerHTML += str;
+  };
+
+  const xuLyDuLieu1 = (data, id) => {
+    const divkhuyenmai = document.getElementById(id);
+    divkhuyenmai.setAttribute(
+      "class",
+      "row align-items-center product-slider product-slider-4"
+    );
+    let str = ``;
+    for (i in data) {
+      let product = data[i];
+      let discount = (product.GIA * product.PHANTRAMGIAM) / 100;
+      discount = discount.toFixed(2);
+      let nowprice = product.GIA - discount;
+      nowprice = nowprice.toFixed(2);
+      let newName = replaceNameProduct(product.TENDONG).toLowerCase();
+
+      str += `<div class="col-lg-3 mb-5">
+                  <div class="product-item" data-id="${product.MADONG}">
+                      <div class="product-title">
+                        <p style="background:#FF9D25;padding:2px;border-radius:2px;position:absolute">-${
+                          product.PHANTRAMGIAM
+                        }%</p><br>
+                          <a class="slug" href="/san-pham/${newName}">${
+        product.TENDONG
+      }</a>
+                          <a class="mota"> ${product.MOTA} </a>
+                          <div class="ratting">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                          </div>
+                      </div>
+                      <div class="product-image">
+                          <a href="/san-pham/${replaceNameProduct(
+                            product.TENDONG
+                          )}">
+                              <img src="${product.HINHANH}" alt="Product Image">
+                          </a>
+                          <div class="product-action">
+                              <button class="addcart"><i class="fa fa-cart-plus"></i></button>
+                              <a href="/wishlist/luu/${
+                                product.MADONG
+                              }"><i class="fa fa-heart"></i></a>
+                              <a href="/san-pham/${replaceNameProduct(
+                                product.TENDONG
+                              ).toLowerCase()}"><i class="fa fa-search"></i></a>
+                          </div>
+                      </div>
+                      <div class="product-price">
+                          <h3><del>${product.GIA.toLocaleString(
+                            "en-US"
+                          )}</del></h3>
+                          <h3> ${nowprice.toLocaleString(
+                            "en-US"
+                          )}<span> $</span></h3>
+                          <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Mua Ngay</a>
+                      </div>
+                  </div>
+              </div>`;
+    }
+    divkhuyenmai.innerHTML += str;
+  };
+
+  window
+    .fetch("http://localhost:3000/san-pham/api/hot-product")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      let id = "non-noi-bat";
+      xuLyDuLieu(data, id);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  window
+    .fetch("http://localhost:3000/san-pham/api/new-product")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      let id = "non-moi-ve";
+      xuLyDuLieu(data, id);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  window
+    .fetch("http://localhost:3000/san-pham/api/khuyen-mai")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      let id = "hang-khuyen-mai";
+      xuLyDuLieu1(data, id);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  function xoa_dau(str) {
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "a");
+    str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "e");
+    str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "i");
+    str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "o");
+    str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "u");
+    str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "y");
+    str = str.replace(/Đ/g, "d");
+    str = str.split(" ").join("-");
+    return str;
+  }
+
+  function replaceNameProduct(nameProduct) {
+    var newNameProduct = xoa_dau(nameProduct);
+    return newNameProduct;
+  }
+</script>

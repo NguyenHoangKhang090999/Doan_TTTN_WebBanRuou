@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Nhập hàng</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="cart-page">
+        <div class="container-fluid">
+         <div class="row">
+            <div class="col-lg-8">
+                <div class="cart-page-inner">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                        <div class="container mt-3">
+                        <h2 style="padding-left:600px">Đơn đặt hàng</h2>
+                        <form action="/quan-tri/exportexcel" method="post" id="myForm">
+                            <label for="age">Tên nhà cung cấp</label>
+
+                            <input
+                            type="text"
+                            name="name"
+                            value="<%=data[0].TENNCC%>"
+                            class="form-control"
+                            />
+                            <label for="class">Địa chỉ</label>
+                            <input
+                            type="text"
+                            name="address"
+                            value="<%=data[0].DIACHI%>"
+                            class="form-control"
+                            />
+                            <label for="class">Email</label>
+                            <input
+                            type="text"
+                            name="email"
+                            value="<%=data[0].EMAIL%>"
+                            class="form-control"
+                            />
+                            <label for="class">Số điện thoại</label>
+                            <input
+                            type="text"
+                            name="phone"
+                            value="<%=data[0].SDT%>"
+                            class="form-control"
+                            />
+                            <br />
+                            <h3 style="margin-left:250px">Danh mục sản phẩm từ nhà cung cấp</h3>
+                            <br>
+                            <thead class="thead-dark" style="margin-left: 300px">
+                            <tr>
+                                <th>ID</th>
+                                <th>Hình ảnh</th>
+                                <th>Tên</th>
+                                <th>Giá</th>
+                                <th>Chọn</th>
+                            </tr>
+                            </thead>
+
+                            <tbody class="align-middle" id="cart">
+                            <% for (product of data) { %>
+
+                            <div>
+                                <tr class="item-cart" data-id="<%=product.MADONG%>">
+                                <td class="id-wine"><%=product.MADONG%></td>
+                                <td>
+                                    <div class="img" style="display: flex; width: 200px">
+                                    <a href=""
+                                        ><img
+                                        style="width: 30%"
+                                        src="/<%=product.HINHANH%>"
+                                        alt="Image"
+                                    /></a>
+                                    </div>
+                                </td>
+                                <td class="name" id="name"><%=product.TENDONG%></td>
+                                <td class="price" style="width:100px"><%=product.GIA%> $</td>
+                                <td><i class="fas fa-plus-circle addcart" style="font-size: 25px;" onclick="alert('Đã thêm vào danh sách')"></i></td>
+                                </tr>
+                            </div>
+                            <% } %>
+                            </tbody>
+                    </table>
+                </div>
+             </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <a href="/quan-tri/export_excel/<%=data[0].MANCC%>" class="btn btn-primary mt-2" style="margin-left: 430px"/>Tiếp tục</a><br>
+        <a href="/quan-tri/crud">Quay lại?</a>
+      
+      </form>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </body>
+</html>
+
+<script>
+
+
+var products = [];
+var cart = [];
+
+$.get("http://localhost:3000/san-pham/api/all-product", (data) => {
+  products = data;
+  console.log(products);
+});
+
+
+ $(document).on("click", ".addcart", function () {
+  const id = $(this).parents(".item-cart").data("id");
+  console.log(id);
+  cart = JSON.parse(localStorage.getItem("keycart1"));
+  //kiem tra xem gio hang da co san pham hay chua
+  const idx = cart.findIndex((val) => val.MADONG === id);
+  console.log(idx);
+
+  //add san pham vao gio hang
+  if (idx !== -1) {
+    cart[idx].quantity = cart[idx].quantity + 1;
+  } else {
+    const item = products.find((val) => val.MADONG === id);
+    cart.push({ ...item, quantity: 1 });
+  }
+
+  var sum = cart.map((val) => val.GIA * val.quantity);
+  saveitemlocalstorage(cart);
+ 
+  console.log(laydanhsachgiohang());
+
+});
+
+
+
+
+
+
+function saveitemlocalstorage(cart) {
+  // chuyen thanh chuoi json
+  var jsoncart = JSON.stringify(cart);
+
+  // //luu vao localstorage
+  localStorage.setItem("keycart1", jsoncart);
+  console.log("đưa vào giỏ hàng được rồi!!! :)))))");
+}
+
+function laydanhsachgiohang() {
+  var danhsach = new Array();
+
+  var jsonCart = localStorage.getItem("keycart1");
+
+  if (jsonCart != null) {
+    danhsach = JSON.parse(jsonCart);
+  }
+
+  return danhsach;
+}
+
+
+
+    
+</script>

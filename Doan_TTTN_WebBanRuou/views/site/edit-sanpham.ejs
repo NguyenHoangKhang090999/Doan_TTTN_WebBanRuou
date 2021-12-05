@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Admin</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mt-3">
+      <h3 class="text-center">Cập nhật loại sản phẩm</h3>
+      <form action="/quan-tri/editsp" method="post">
+        <label for="name">Mã dòng</label>
+        <label for="name"><%=data.MADONG%></label><br />
+        <input
+          type="hidden"
+          name="id"
+          value="<%=data.MADONG%>"
+          class="form-control"
+        />
+        <label for="age">Tên dòng rượu</label>
+        <input
+          type="text"
+          name="name"
+          value="<%=data.TENDONG%>"
+          class="form-control"
+        />
+        <label for="age">Giá</label>
+        <input
+          type="text"
+          name="price"
+          value="<%=data.GIA%>"
+          class="form-control"
+        />
+        <label for="age">Trạng thái</label>
+        <input
+          type="text"
+          name="status"
+          value="<%=data.TRANGTHAI%>"
+          class="form-control"
+        />
+        <label for="age">Hình ảnh</label><br />
+
+        <img
+          src="/<%=data.HINHANH%>"
+          alt=""
+          style="width: 20%; border: 1px solid black"
+        />
+        <br />
+        <input
+          type="file"
+          name="image"
+          value="/<%=data.HINHANH%>"
+          class="form-control"
+          style="width: 300px"
+        />
+
+        <label for="age">Mô tả</label>
+        <input
+          type="text"
+          name="des"
+          value="<%=data.MOTA%>"
+          class="form-control"
+        />
+        <label for="age">Chi tiết</label>
+        <input
+          type="text"
+          name="detail"
+          value="<%=data.CHITIET%>"
+          class="form-control"
+        />
+        <br />
+        <label for="age">Loại rượu</label>
+        <select
+          name="maloai"
+          id="dropdown-cat"
+          class="combo"
+          style="height: 25px"
+          value="<%=data.MALOAI%>"
+        >
+          <option value="<%=data.MALOAI%>"><%=data.TENLOAI%></option>
+        </select>
+        <label for="age">Thương hiệu</label>
+        <select
+          name="math"
+          id="dropdown-brand"
+          class="combo"
+          style="height: 25px"
+          value="<%=data.MATH%>"
+        >
+          <option value="<%=data.MATH%>"><%=data.TENTH%></option>
+        </select>
+        <br />
+        <input type="submit" value="Cập nhật" class="btn btn-primary mt-2" />
+        <br />
+        <a href="/quan-tri/crud">Quay lại?</a>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  function putmaloai(obj) {
+    // $("cat_input").remove();
+    const input = document.getElementById("catinput");
+    let str = `<input
+          class = "cat_input"
+          type="text"
+          name="maloai"
+          value="${obj.value}";
+          class="form-control"
+        />`;
+
+    input.innerHTML += str;
+  }
+  const renderdropdownlist = (data, id) => {
+    const divcat = document.getElementById(id);
+
+    let str = ``;
+    for (i in data) {
+      let cat = data[i];
+      str += `<option value="${cat.MALOAI}">${cat.TENLOAI}</option>`;
+    }
+    divcat.innerHTML += str;
+  };
+
+  const renderdropdownlist1 = (data, id) => {
+    const divcat = document.getElementById(id);
+
+    let str = ``;
+    for (i in data) {
+      let brand = data[i];
+      str += `<option value="${brand.MATH}">${brand.TENTH}</option>`;
+    }
+    divcat.innerHTML += str;
+  };
+
+  window
+    .fetch("http://localhost:3000/quan-tri/api/all-cat")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      let id = "dropdown-cat";
+      renderdropdownlist(data, id);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  window
+    .fetch("http://localhost:3000/quan-tri/api/all-brand")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      let id = "dropdown-brand";
+      renderdropdownlist1(data, id);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+</script>

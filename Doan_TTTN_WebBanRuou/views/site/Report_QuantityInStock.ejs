@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://printjs-4de6.kxcdn.com/print.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5 mb-5" id="bill-content">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-20">
+          <div class="toolbar" style="display: flex">
+            <button
+              style="margin-left: 1080px"
+              onclick="printJS('bill-content', 'html')"
+            >
+              <i class="fas fa-print"></i>
+            </button>
+
+            <button style="margin-left: 10px" onclick="generatePDF()">
+              <i class="fas fa-download"></i>
+            </button>
+          </div>
+          <div class="card" id="invoice">
+            <div class="text-left logo p-2 px-5"></div>
+            <div class="invoice p-5">
+              <div class="info-Bill">
+                <div class="office" style="display: flex">
+                  <div class="info-office">
+                    <p style="font-weight: bold; font-size: 20px">
+                      Công ty rượu Lusion Wine
+                    </p>
+                    <p><span>Địa chỉ: </span> 91 Man Thiện, quận 9,Thủ Đức</p>
+                    <p><span>Phone: </span> 0338744199</p>
+                    <p><span>Email: </span> Lusion@gmail.com</p>
+                    <p><span>Nhân viên lập: </span><%=user.ho%><%=user.ten%></p>
+                  </div>
+                  <img
+                    src="/img/logoReport.PNG"
+                    alt=""
+                    style="width: 30%; height: 40%; margin-left: 350px"
+                  />
+                </div>
+              </div>
+              <div class="title">
+                <h5
+                  style="
+                    margin-left: 180px;
+                    font-weight: bold;
+                    font-size: 25px;
+                    margin-bottom: 130px;
+                  "
+                >
+                  BÁO CÁO TỒN KHO TÍNH ĐẾN NGÀY <span class="date-check"></span>
+                </h5>
+              </div>
+
+              <div class="product border-bottom">
+                <table class="table">
+                  <tbody id="data-db">
+                    <td style="text-align: center">
+                      <span style="font-weight: bold">Mã</span>
+                    </td>
+                    <td style="text-align: center">
+                      <span style="font-weight: bold">Tên dòng</span>
+                    </td>
+                    <td style="text-align: center">
+                      <span style="font-weight: bold">Dung tích</span>
+                    </td>
+                    <td style="text-align: center">
+                      <span style="font-weight: bold">ĐVT</span>
+                    </td>
+                    <td style="text-align: center">
+                      <span style="font-weight: bold">Số lượng</span>
+                    </td>
+                    <td style="text-align: center">
+                      <span style="font-weight: bold">Đơn Giá</span>
+                    </td>
+                    <td style="text-align: center">
+                      <span style="font-weight: bold">Trị giá</span>
+                    </td>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+      integrity="sha256-c9vxcXyAG4paArQG3xk6DjyW/9aHxai2ef9RpMWO44A="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>
+<script>
+  let date = new Date();
+  let sum = 0;
+  let datetime1 =
+    date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+
+  $(".date-check").text(datetime1);
+
+  function renderdata(data, id) {
+    let div = document.getElementById(id);
+    let sum = 0;
+    let totalquantity = 0;
+    for (i = 0; i < data.length; i++) {
+      sum += data[i].TRIGIA;
+      totalquantity += data[i].SOLUONGTON;
+    }
+    let html = ``;
+    for (i = 0; i < data.length; i++) {
+      let d = data[i];
+      if (i === 0) {
+        html += `
+              <th>${d.TENLOAI}</th>
+              <tr>
+                <td style=" text-align: right;border: 1px solid black;">${
+                  d.MADONG
+                }</td>
+                <td style=" text-align: left;border: 1px solid black">${
+                  d.TENDONG
+                }</td>
+                <td style=" text-align: right;border: 1px solid black">${
+                  d.MOTA
+                }</td>
+                <td style=" text-align: right;border: 1px solid black">${
+                  d.DVT
+                }</td>
+                <td style=" text-align: right;border: 1px solid black">${
+                  d.SOLUONGTON
+                }</td>
+                <td style=" text-align: right;border: 1px solid black">${d.GIA.toLocaleString(
+                  "vi-VN"
+                )}</td>
+                <td style=" text-align: right;border: 1px solid black">${d.TRIGIA.toLocaleString(
+                  "vi-VN"
+                )}</td>
+             </tr>`;
+      } else {
+        if (data[i].TENLOAI !== data[i - 1].TENLOAI) {
+          html += `
+              <tr><td> </td></tr>
+              <tr><td> </td></tr>
+              <tr><td> </td></tr>
+              <p style="font-weight:bold" data-id="${d.TENLOAI}">${
+            d.TENLOAI
+          }</p>
+
+              <tr>
+                <td style=" text-align: right;border: 1px solid black;">${
+                  d.MADONG
+                }</td>
+                <td style=" text-align: left;border: 1px solid black">${
+                  d.TENDONG
+                }</td>
+                <td style=" text-align: right;border: 1px solid black">${
+                  d.MOTA
+                }</td>
+                <td style=" text-align: right;border: 1px solid black">${
+                  d.DVT
+                }</td>
+                <td style=" text-align: right;border: 1px solid black">${
+                  d.SOLUONGTON
+                }</td>
+                <td style=" text-align: right;border: 1px solid black">${d.GIA.toLocaleString(
+                  "vi-VN"
+                )}</td>
+                <td style=" text-align: right;border: 1px solid black">${d.TRIGIA.toLocaleString(
+                  "vi-VN"
+                )}</td>
+             </tr>
+            `;
+        } else {
+          html += `
+              <tr>
+                <td style=" text-align: right;border: 1px solid black;">${
+                  d.MADONG
+                }</td>
+                <td style=" text-align: left;border: 1px solid black">${
+                  d.TENDONG
+                }</td>
+                <td style=" text-align: right;border: 1px solid black">${
+                  d.MOTA
+                }</td>
+                <td style=" text-align: right;border: 1px solid black">${
+                  d.DVT
+                }</td>
+                <td style=" text-align: right;border: 1px solid black">${
+                  d.SOLUONGTON
+                }</td>
+                <td style=" text-align: right;border: 1px solid black">${d.GIA.toLocaleString(
+                  "vi-VN"
+                )}</td>
+                <td style=" text-align: right;border: 1px solid black">${d.TRIGIA.toLocaleString(
+                  "vi-VN"
+                )}</td>
+             </tr>`;
+        }
+      }
+
+      if (data[i] !== data[data.length - 1]) {
+        if (data[i].TENLOAI !== data[i + 1].TENLOAI) {
+          if (data[i].TENLOAI === "Whisky") {
+            let sum = 0;
+            let sum_quantity = 0;
+            for (j = i; j >= 0; j--) {
+              sum += data[j].TRIGIA;
+              sum_quantity += data[j].SOLUONGTON;
+            }
+            html += `
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td style="font-weight:bold;text-align:right">Tổng:</td>
+                      <td style="text-align:right">${sum_quantity}</td>
+                      <td></td>            
+                      <td data="${
+                        data[i].TENLOAI
+                      }" style="text-align:right"> ${sum.toLocaleString(
+              "vi-VN"
+            )}<td>
+              `;
+          } else {
+            let sum = 0;
+            let sum_quantity = 0;
+            for (j = i; j >= 0; j--) {
+              if (data[j].TENLOAI !== data[j - 1].TENLOAI) {
+                sum += data[j].TRIGIA;
+                sum_quantity += data[j].SOLUONGTON;
+                break;
+              } else {
+                sum += data[j].TRIGIA;
+                sum_quantity += data[j].SOLUONGTON;
+              }
+            }
+            html += ` <td></td>
+                      <td></td>
+                      <td></td>
+                      <td style="font-weight:bold;text-align:right">Tổng:</td>
+                      <td style="text-align:right">${sum_quantity}</td>
+                      <td></td>            
+                      <td data="${
+                        data[i].TENLOAI
+                      }" style="text-align:right"> ${sum.toLocaleString(
+              "vi-VN"
+            )}<td>`;
+          }
+        }
+      } else {
+        let sum = 0;
+        let sum_quantity = 0;
+        for (j = i; j >= 0; j--) {
+          if (data[j].TENLOAI !== data[j - 1].TENLOAI) {
+            sum += data[j].TRIGIA;
+            sum_quantity += data[j].SOLUONGTON;
+            break;
+          } else {
+            sum += data[j].TRIGIA;
+            sum_quantity += data[j].SOLUONGTON;
+          }
+        }
+        html += `<td></td>
+                      <td></td>
+                      <td></td>
+                      <td style="font-weight:bold;text-align:right">Tổng:</td>
+                      <td style="text-align:right">${sum_quantity}</td>
+                      <td></td>            
+                      <td data="${
+                        data[i].TENLOAI
+                      }" style="text-align:right"> ${sum.toLocaleString(
+          "vi-VN"
+        )}<td>`;
+      }
+    }
+
+    html += `
+    <tr><td></td></tr>
+    <tr><td></td></tr>
+    <tr><td></td><td></td><td></td><td style="font-weight:bold">Tổng cộng</td><td style="text-align:right">${totalquantity}</td><td></td><td><span style="font-weight:bold;text-align:right"> </span>${sum.toLocaleString(
+      "vi-VN"
+    )}  </td></tr>`;
+
+    div.innerHTML += html;
+  }
+
+  // function renderfooter(data, id) {
+  //   let div = document.getElementById(id);
+  //   let html = ``;
+  //   for (i = 0; i < data.length; i++) {
+  //     let d = data[i];
+  //     if (data[i].TENLOAI !== data[i + 1].TENLOAI) {
+  //     }
+  //   }
+  // }
+
+  window
+    .fetch("http://localhost:3000/quan-tri/api/ReportQuantityInStock")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      let id = "data-db";
+      renderdata(data, id);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  function generatePDF() {
+    // Choose the element that our invoice is rendered in.
+    const element = document.getElementById("invoice");
+    // Choose the element and save the PDF for our user.
+    html2pdf().from(element).save();
+  }
+</script>
