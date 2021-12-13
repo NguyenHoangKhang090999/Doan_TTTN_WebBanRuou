@@ -293,6 +293,7 @@
                 id="report-pdf"
                 role="tabpanel"
                 aria-labelledby="orders-nav"
+                
               >
             <div class="container mt-3" >
               <h2 style="margin-left: 420px;">Report</h2>
@@ -304,25 +305,23 @@
                     <tr>
                       <td>1</td>
                       <td style="text-align:left">Báo cáo doanh thu từng tháng trong năm </td>
-                      <td>Năm:<select name="statistical" id="" class="combo" style="height:25px;width:150px;margin-left: 100px;" onchange="validateSelectBoxReport(this)">
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
+                      <td>Năm:<select name="statistical" id="combobox-year-revenue" class="combo" style="height:25px;width:150px;margin-left: 100px;" onchange="validateSelectBoxReport(this)">
+                        <option value="">None</option>
                       </select></td>
                       <td style="text-align:left" id="report-year"></td>
                     </tr>
                     <tr>
                       <td>2</td>  
-                      <td style="text-align:left">Báo cáo tồn kho tính đến hiện tại</td>
-                      <td style="text-align:left"><a href="/quan-tri/Report_QuantityInStock" class="btn btn-primary"><i class="fas fa-search"></i></a></td>
+                      <td style="text-align:left">Báo cáo tồn kho tính đến hiện tại <a href="/quan-tri/Report_QuantityInStock" class="btn btn-primary"><i class="fas fa-search"></i></a></td>
+                      <td style="text-align:left"></td>
                     </tr>
                     <tr>
                       <td>3</td>
-                      <td style="text-align:left">Báo cáo thống kê TOP những sản phẩm bán chạy</td>
-                      
-                     <td>NO: <input id="quantity-product-pdf" type="text" style="width:30px"> Từ: <input id="date-from-pdf" type="date" style="width:160px"></td>
-                      <td style="text-align:left;">Đến: <input id="date-to-pdf" type="date" style="width:160px"><button onclick="product_sold_pdf()"><i class="fas fa-search"></i></button></td>
-                      
+                      <td style="text-align:left">Báo cáo thống kê TOP những sản phẩm bán chạy <button onclick="product_sold_pdf()" class="btn btn-primary"><i class="fas fa-search"></i></button></td>
+                      <span style="position: absolute;margin-top: 130px;margin-left: 500px;"> NO: <input id="quantity-product-pdf" type="text" style="width:40px"> FROM: <input id="date-from-pdf" type="date" style="width:170px">
+                        TO <input id="date-to-pdf" type="date" style="width:170px"></span>
+                     
+                   
                     </tr>
                   </tbody>
                 </table>
@@ -1257,6 +1256,31 @@ btnPrev.addEventListener('click',()=>{
   console.log(err);
 });
 
+window
+.fetch("http://localhost:3000/quan-tri/api/GetYearRevenue")
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  console.log(data);
+  let id = "combobox-year-revenue";
+  renderYearRevenue(data, id);
+})
+.catch((err) => {
+  console.log(err);
+});
+
+const renderYearRevenue = (data, id) => {
+    const div = document.getElementById(id);
+   
+    let str = ``;
+    for (i in data) {
+      let sp = data[i];
+      str += ` <option value="${sp.YEAR}"> ${sp.YEAR}</option>`;
+    }
+    div.innerHTML += str;
+  };
+
 
 
   window
@@ -1741,19 +1765,10 @@ const render_sum_revenu = (data, id) => {
     // lặp qua từng option và kiểm tra thuộc tính selected
     for (var i = 0; i < options.length; i++){
         if (options[i].selected){
-           
-            if(options[i].value==='2019'){
+            if(options[i].value){
             $("#report-year").empty();
-
-              html +=`<a href="/quan-tri/Report_revenu/2019" class="btn btn-primary"><i class="fas fa-search"></i></a>`;
-            }else if(options[i].value==='2020'){
-          $("#report-year").empty();
-          html +=`<a href="/quan-tri/Report_revenu/2020" class="btn btn-primary"><i class="fas fa-search"></i></a>`;
-
-            }else if(options[i].value==='2021'){
-              $("#report-year").empty();
-              html +=`<a href="/quan-tri/Report_revenu/2021" class="btn btn-primary"><i class="fas fa-search"></i></a>`;
-          }
+              html +=`<a href="/quan-tri/Report_revenu/${options[i].value}" class="btn btn-primary"><i class="fas fa-search"></i></a>`;
+            }
         }
       }
     
@@ -1766,6 +1781,7 @@ const render_sum_revenu = (data, id) => {
 
 function product_sold_pdf()
 {
+
     let quantity = document.getElementById('quantity-product-pdf').value;
     let datefrom = document.getElementById('date-from-pdf').value;
     let dateto = document.getElementById('date-to-pdf').value;
@@ -1774,7 +1790,12 @@ function product_sold_pdf()
 
     let datefrom2 = datefrom1.getDate()+"-"  +(datefrom1.getMonth() + 1) +"-" + datefrom1.getFullYear();
     let dateto2 = dateto1.getDate()+"-"  +(dateto1.getMonth() + 1) +"-" + dateto1.getFullYear();
-    window.location = `/quan-tri/Report_Product_Sold_PDF/${quantity}/${datefrom2}/${dateto2}`;
+    if(quantity !== "" && datefrom !== "" && dateto !== ""){
+      window.location = `/quan-tri/Report_Product_Sold_PDF/${quantity}/${datefrom2}/${dateto2}`;
+    }else{
+      window.alert("Mời nhập đầy đủ thông tin!!!");
+    }
+    
  
     // Gán kết quả vào div#report-year
     document.getElementById('report-year').innerHTML = html;

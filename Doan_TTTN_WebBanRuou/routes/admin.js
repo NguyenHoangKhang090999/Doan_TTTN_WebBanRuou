@@ -528,7 +528,7 @@ router.post("/confirm_order", async function (req, res, next) {
         }
         //Thực thi câu lệnh thứ 2
         db.query(
-          `UPDATE ct_phieudat SET TRANGTHAI='Đã phân công',MANVDH='${req.body.idnvd}',MANVGH='${req.body.idnvgh}' WHERE MAPD='${req.body.iddonhang}'`,
+          `UPDATE ct_phieudat SET TRANGTHAI='Đã phân công' WHERE MAPD='${req.body.iddonhang}'`,
           function (err) {
             //Nếu lỗi thì
             if (err) {
@@ -1307,6 +1307,11 @@ router.get("/api/product_sold_pdf/:from/:to/:lm", async function (req, res) {
   let to = req.params.to;
   let lm = req.params.lm;
   let data = await modelAdmin.product_sold_custom_pdf(from, to, lm);
+  res.json(data);
+});
+
+router.get("/api/GetyearRevenue", async function (req, res) {
+  let data = await modelAdmin.GetYearRevenue();
   res.json(data);
 });
 

@@ -131,9 +131,10 @@
   function renderdata(data, id) {
     let div = document.getElementById(id);
     let html = ``;
+    let sum = 0;
     for (i in data) {
       let dt = data[i];
-
+      sum += dt.sl;
       html += `<tr>
                 <td>${++i}</td>
                 <td>${dt.MADONG}</td>
@@ -143,11 +144,9 @@
                 <td style=""><span style="margin-left: 100px;align-item: self-start">${
                   dt.sl
                 }</span></td>
-
-
              </tr>`;
     }
-
+    html += `<td></td><td></td><td style="text-align:right;font-weight:bold">Tổng:</td><td><span style="margin-left: 100px;align-item: self-start">${sum}</span></td>`;
     div.innerHTML += html;
   }
 

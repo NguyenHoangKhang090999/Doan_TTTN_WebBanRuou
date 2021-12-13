@@ -73,11 +73,10 @@ router.post("/dang-nhap-admin", function (req, res, next) {
         // } else {
         //   res.render("site/admin.ejs", { user: req.session.User });
         // }
-        res.render("site/delivery.ejs", { user: req.session.User });
+        res.render("site/admin-crud.ejs", { user: req.session.User });
       }
     } else {
       console.log("Not OK");
-      let message = "Sai thong tin dang nhap!";
       res.redirect("/users/dang-nhap-admin");
     }
   });

@@ -32,6 +32,7 @@ router.post("/payment", async function (req, res) {
   let diachi = req.body.diachi;
   let ghichu = req.body.note;
   let cartarr = req.body.arrCart;
+  let district = req.body.district;
   let listCart = JSON.parse(cartarr);
   let id = makeid(10);
   let status = "Chưa duyệt";
@@ -51,6 +52,7 @@ router.post("/payment", async function (req, res) {
     TRANGTHAI: status,
     DIACHI: diachi,
     NGAYDAT: datetime,
+    district: district,
     listCart: listCart,
   };
   var item = [];

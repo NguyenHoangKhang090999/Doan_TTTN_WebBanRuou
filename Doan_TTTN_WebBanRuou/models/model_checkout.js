@@ -24,8 +24,8 @@ exports.createOrderDetail = (data) => {
 exports.createOrder = (data) => {
   console.log(data);
   db.query(
-    `INSERT INTO phieudat(MAPD,NGAYDAT,HONN,TENNN,DIACHINN,SDTNN,GHICHU,TRANGTHAI,MAKH)
-    VALUES('${data.id}','${data.NGAYDAT}','${data.HO}','${data.TEN}','${data.DIACHI}','${data.SDT}','${data.GHICHU}','${data.TRANGTHAI}','${data.MAKH}')`,
+    `INSERT INTO phieudat(MAPD,NGAYDAT,HONN,TENNN,DIACHINN,SDTNN,GHICHU,TRANGTHAI,MAKH,MAQUAN)
+    VALUES('${data.id}','${data.NGAYDAT}','${data.HO}','${data.TEN}','${data.DIACHI}','${data.SDT}','${data.GHICHU}','${data.TRANGTHAI}','${data.MAKH}','${data.district}')`,
     function (err) {
       if (err) throw err;
 

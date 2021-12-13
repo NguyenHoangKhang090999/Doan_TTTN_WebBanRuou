@@ -320,7 +320,7 @@
               <h2>Liên Hệ</h2>
               <div class="contact-info">
                 <p><i class="fa fa-map-marker"></i>Thành Phố Hồ Chí Minh</p>
-                <p><i class="fa fa-envelope"></i>HoangKhang1999ag</p>
+                <p><i class="fa fa-envelope"></i>HoangKhang1999ag@gmail.com</p>
                 <p><i class="fa fa-phone"></i>0338744192</p>
               </div>
             </div>
@@ -588,7 +588,8 @@
     str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "y");
     str = str.replace(/Đ/g, "d");
     // str = str.split(" ").join("-");
-    str = str.split(" ").join("");
+    // str = str.split(" ").join("");
+    str = str.replace(/\s+/g, " ");
     return str;
   }
 

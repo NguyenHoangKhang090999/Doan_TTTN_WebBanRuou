@@ -530,8 +530,8 @@ exports.listDeliveryStaffFinish = (data) => {
 exports.ReportRevenupdf = (year) => {
   return new Promise((hamOK, hamLoi) => {
     let sql = `SELECT tmp.id,tmp.THANG, IFNULL(p.TONGTIEN,0) as DOANHTHU,p.USD FROM TEMP_MONTH as tmp left join (
-      SELECT ROUND(SUM(hd.THANHTIEN),0) *ROUND(vn.PRICE,-3) as TONGTIEN,ROUND(SUM(hd.THANHTIEN),2) as USD, MONTH(hd.NGAY) as THANG
-      FROM hoadon as hd, vnd_unit as vn
+      SELECT ROUND(SUM(hd.THANHTIEN),0) *ROUND((SELECT vn.PRICE FROM vnd_unit as vn order by vn.DATE_CHANGE DESC limit 1),-3) as TONGTIEN,ROUND(SUM(hd.THANHTIEN),2) as USD, MONTH(hd.NGAY) as THANG
+      FROM hoadon as hd
       WHERE YEAR(hd.NGAY) = '${year}' 
       GROUP BY MONTH(hd.NGAY))as p on tmp.THANG = p.THANG`;
     db.query(sql, (err, d) => {
@@ -561,6 +561,18 @@ exports.AllCostProduct = () => {
     SELECT ct.MAPN,SUM(ROUND((ct.SOLUONG*ct.GIA*vn.PRICE)/12)) as TONG 
     FROM ct_phieunhap as ct,vnd_unit as vn,phieunhap as pn 
     WHERE YEAR(pn.NGAYLAP) = '2021'`;
+    db.query(sql, (err, d) => {
+      console.log("List success");
+      dataList = d;
+      hamOK(dataList);
+    });
+  });
+};
+
+exports.GetYearRevenue = () => {
+  return new Promise((hamOK, hamLoi) => {
+    let sql = `
+    SELECT year(NGAYDAT) as YEAR FROM phieudat group by year(NGAYDAT)`;
     db.query(sql, (err, d) => {
       console.log("List success");
       dataList = d;
