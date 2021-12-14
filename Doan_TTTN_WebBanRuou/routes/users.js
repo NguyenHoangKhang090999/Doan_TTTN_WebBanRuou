@@ -35,6 +35,57 @@ router.get("/dang-nhap-admin", function (req, res, next) {
   res.render("site/dang-nhap-admin.ejs");
 });
 
+router.get("/dang-nhap-giao-hang", function (req, res, next) {
+  res.render("site/dang-nhap-giao-hang.ejs");
+});
+
+router.post("/dang-nhap-giao-hang", function (req, res, next) {
+  let u = req.body.username;
+  let p = req.body.password;
+  let sql = `SELECT * FROM NHANVIEN WHERE USERNAME = '${u}'`;
+  db.query(sql, (err, rows) => {
+    if (rows.length <= 0) {
+      res.redirect("/users/dang-nhap-admin");
+      return;
+    }
+    let user = rows[0];
+    let pass_fromdb = user.PASSWORD;
+    console.log(pass_fromdb);
+    var kq = bcrypt.compareSync(p, pass_fromdb);
+    console.log(kq);
+    if (kq) {
+      req.session.User = {
+        id: user.MANV,
+        username: user.USERNAME,
+        ho: user.HO,
+        ten: user.TEN,
+        phone: user.SDT,
+        email: user.EMAIL,
+        address: user.DIACHI,
+        sex: user.GIOITINH,
+        birthday: user.NGAYSINH,
+        logIn: true,
+      };
+
+      console.log(req.session.User);
+      if (req.session.back) {
+        console.log(req.session.back);
+        res.redirect(req.session.back);
+      } else {
+        // if (user.MANQ === 3) {
+        //   res.render("site/delivery.ejs", { user: req.session.User });
+        // } else {
+        //   res.render("site/admin.ejs", { user: req.session.User });
+        // }
+        res.render("site/delivery.ejs", { user: req.session.User });
+      }
+    } else {
+      console.log("Not OK");
+      res.redirect("/users/dang-nhap-admin");
+    }
+  });
+});
+
 router.post("/dang-nhap-admin", function (req, res, next) {
   let u = req.body.username;
   let p = req.body.password;

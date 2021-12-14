@@ -1134,7 +1134,7 @@ btnPrev.addEventListener('click',()=>{
                       <td style="width:300px"><img src="../${km.HINHANH}" alt="" style="width:30%"></td>
                       <td>${km.PHANTRAMGIAM}%</td>
                       <td>
-                        <a href="/quan-tri/deletesp/${km.MAKM}" onclick="return confirm('Bạn có chắc muốn xóa item này hay không???')" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        <a href="/quan-tri/deletespkm/${km.MADONG}" onclick="return confirm('Bạn có chắc muốn xóa item này hay không???')" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                       </td>
                     </tr>`;
     }
@@ -1791,7 +1791,7 @@ function product_sold_pdf()
     let datefrom2 = datefrom1.getDate()+"-"  +(datefrom1.getMonth() + 1) +"-" + datefrom1.getFullYear();
     let dateto2 = dateto1.getDate()+"-"  +(dateto1.getMonth() + 1) +"-" + dateto1.getFullYear();
     if(quantity !== "" && datefrom !== "" && dateto !== ""){
-      window.location = `/quan-tri/Report_Product_Sold_PDF/${quantity}/${datefrom2}/${dateto2}`;
+      window.location = `/quan-tri/Report_Product_Sold_PDF/${quantity}/${datefrom2}/${dateto2}/${datefrom1}/${dateto1}`;
     }else{
       window.alert("Mời nhập đầy đủ thông tin!!!");
     }

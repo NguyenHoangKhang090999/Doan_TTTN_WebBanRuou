@@ -158,7 +158,7 @@
                         </td>
                         <td>
                           <div class="text-right">
-                            <%if (data[0].subtotal > 200) { %>
+                            <%if (data[0].subtotal >= 200) { %>
                             <span>Free</span>
                             <% }else{ %>
                             <span>$<%=data[0].sl*2%></span>

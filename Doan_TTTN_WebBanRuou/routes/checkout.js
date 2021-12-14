@@ -79,7 +79,7 @@ router.post("/payment", async function (req, res) {
     });
   }
 
-  if (total > 200) {
+  if (total >= 200) {
     var shipping = 0;
   } else {
     var shipping = data.listCart.length * 2;
@@ -166,6 +166,7 @@ router.get("/success", function (req, res, next) {
         let query2 = model_checkout.createOrderDetail(data);
         const idbill = crypto.randomBytes(5).toString("hex");
         let query3 = modelAdmin.create_Bill(data.listCart, idbill, data.id);
+        let query4 = model_checkout.handleQuantity(data);
         res.render("site/PaymentSuccess.ejs");
       }
     }
@@ -213,6 +214,7 @@ router.post("/orderShipCode", async function (req, res) {
 
       let query = model_checkout.createOrderDetail(data2);
       let query1 = modelAdmin.create_Bill(data2.listCart, idbill, data2.id);
+      let query2 = model_checkout.handleQuantity(data2);
       res.render("site/PaymentSuccess.ejs");
     }
   );

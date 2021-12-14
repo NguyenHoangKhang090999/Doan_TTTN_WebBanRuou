@@ -150,8 +150,8 @@
     div.innerHTML += html;
   }
 
-  const datefrom = "<%=datefrom%>";
-  const dateto = "<%=dateto%>";
+  const datefrom = "<%=datefrom1%>";
+  const dateto = "<%=dateto1%>";
 
   let datefrom1 = new Date(datefrom);
   let dateto1 = new Date(dateto);
@@ -159,16 +159,16 @@
   let datefrom2 =
     datefrom1.getFullYear() +
     "-" +
-    datefrom1.getDate() +
+    (datefrom1.getMonth() + 1) +
     "-" +
-    (datefrom1.getMonth() + 1);
+    datefrom1.getDate();
   console.log(datefrom2);
   let dateto2 =
     dateto1.getFullYear() +
     "-" +
-    dateto1.getDate() +
+    (dateto1.getMonth() + 1) +
     "-" +
-    (dateto1.getMonth() + 1);
+    dateto1.getDate();
   console.log(dateto2);
   window
     .fetch(

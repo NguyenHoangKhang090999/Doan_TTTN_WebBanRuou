@@ -330,7 +330,7 @@ exports.product_sold_custom_pdf = (from, to, lm) => {
   return new Promise((hamOK, hamLoi) => {
     let sql = `SELECT d.MADONG,d.TENDONG,d.HINHANH,sum(ct.SOLUONG) as sl 
     FROM ct_phieudat as  ct,dongruou as d,phieudat as pd
-    WHERE ct.TRANGTHAI = 'Đã giao' and d.MADONG=ct.MADONG and ct.MAPD = pd.MAPD and pd.NGAYDAT between '${from}' and '${to}'
+    WHERE pd.TRANGTHAI = 'Đã giao' and d.MADONG=ct.MADONG and ct.MAPD = pd.MAPD and pd.NGAYDAT between '${from}' and '${to}'
     group by ct.MADONG order by sl DESC limit ${limit}`;
     db.query(sql, (err, d) => {
       console.log("List success");
@@ -573,6 +573,18 @@ exports.GetYearRevenue = () => {
   return new Promise((hamOK, hamLoi) => {
     let sql = `
     SELECT year(NGAYDAT) as YEAR FROM phieudat group by year(NGAYDAT)`;
+    db.query(sql, (err, d) => {
+      console.log("List success");
+      dataList = d;
+      hamOK(dataList);
+    });
+  });
+};
+
+exports.IDDONDATHANG = () => {
+  return new Promise((hamOK, hamLoi) => {
+    let sql = `
+    SELECT MADDH FROM dondathang`;
     db.query(sql, (err, d) => {
       console.log("List success");
       dataList = d;

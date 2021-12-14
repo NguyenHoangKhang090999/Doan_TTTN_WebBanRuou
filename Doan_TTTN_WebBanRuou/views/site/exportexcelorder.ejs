@@ -82,7 +82,7 @@
       id="form-info-order"
       action="/quan-tri/saveOrder"
       method="post"
-      onsubmit="alert('Hoàn tất đơn đặt hàng!!!')"
+      onsubmit="return checkValidateID()"
     >
       <div class="row" id="checkout-info">
         <div class="col-md-6">
@@ -95,6 +95,24 @@
             value="<%=data[0].MANCC%>"
           />
         </div>
+        <div class="col-md-6">
+          <p style="font-weight: bold; margin-left: 20px">Nhập mã đơn hàng</p>
+          <input
+            class="form-control"
+            name="iddh"
+            id="idorder"
+            type="text"
+            placeholder="Nhập mã đơn hàng"
+            style="width: 200px"
+          />
+          <p style="color: red" id="render-fault"></p>
+        </div>
+        <input
+          class="btn-checkout"
+          type="submit"
+          value="Lưu và xuất File Excel"
+          style="margin-left: 800px"
+        />
       </div>
     </form>
 
@@ -129,6 +147,26 @@
 </html>
 
 <script>
+  var listidddh;
+  $.get("http://localhost:3000/quan-tri/api/IDDONDATHANG", (data) => {
+    listidddh = data;
+    console.log(data);
+  });
+  function checkValidateID() {
+    $("#render-fault").empty();
+    let id = document.myform.iddh.value;
+    const div = document.getElementById("render-fault");
+    let idx = listidddh.findIndex((val) => val.MADDH === id);
+    if (idx !== -1) {
+      div.innerHTML += "Mã đơn đặt hàng đã tồn tại!!!";
+      console.log("sai");
+      return false;
+    } else {
+      window.alert("Hoàn tất đơn đặt hàng!!!");
+      exportToExcel("Orders", "Orders", "ĐƠN ĐẶT HÀNG");
+    }
+  }
+
   renderFormsubmit();
   function rendercart(data, id) {
     $(".align-middle").empty();
@@ -200,18 +238,7 @@
     let idnv = localStorage.getItem("recentadmin");
     let str = ``;
 
-    str = `<div class="checkout-info">
-                    <div class="col-md-10">
-                      <p style="font-weight:bold;margin-left:20px">Nhập mã đơn hàng</p>
-                      <input
-                        class="form-control"
-                        name="iddh"
-                        id="idorder"
-                        type="text"
-                        placeholder="Nhập mã đơn hàng"
-                        style="padding: 0px 20px"
-                      />
-                    </div>
+    str = `        
                     <div class="col-md-6">
                       <input
                         class="form-control"
@@ -232,8 +259,8 @@
                         value='${cartnow}'
                       />
                     </div>
-                    <input class="btn-checkout" type="submit" value="Lưu và xuất File Excel" onclick="exportToExcel('Orders', 'Orders', 'ĐƠN ĐẶT HÀNG')" style="margin-left:20px">
-                  </div>`;
+                    
+                 `;
     div.innerHTML += str;
   }
 

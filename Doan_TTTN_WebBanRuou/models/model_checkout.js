@@ -33,3 +33,31 @@ exports.createOrder = (data) => {
     }
   );
 };
+
+exports.handleQuantity = (data) => {
+  console.log(data);
+  let cart = data.listCart;
+  for (i = 0; i < cart.length; i++) {
+    db.query(
+      `UPDATE dongruou SET SOLUONGTON = (SOLUONGTON - '${cart[i].quantity}') where MADONG = '${cart[i].MADONG}'`,
+      function (err) {
+        if (err) throw err;
+        console.log("THÀNH CÔNG!!!");
+      }
+    );
+  }
+};
+
+exports.handleQuantity1 = (data) => {
+  console.log(data);
+  let cart = data;
+  for (i = 0; i < cart.length; i++) {
+    db.query(
+      `UPDATE dongruou SET SOLUONGTON = (SOLUONGTON + '${cart[i].Soluong}') where MADONG = '${cart[i].Madong}'`,
+      function (err) {
+        if (err) throw err;
+        console.log("THÀNH CÔNG!!!");
+      }
+    );
+  }
+};

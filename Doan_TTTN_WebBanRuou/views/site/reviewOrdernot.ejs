@@ -101,7 +101,7 @@
                 </table>
                 <div>
                   <h4 style="margin-left: 20px">
-                    Phí Ship:<%if (product.subtotal > 200) { %>
+                    Phí Ship:<%if (product.subtotal >= 200) { %>
                     <span>Miễn phí</span>
                     <% }else{ %>
                     <span><%=product.sl*2%>$</span>

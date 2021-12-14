@@ -4,6 +4,7 @@ var db = require("../models/database");
 var modelAdmin = require("../models/model_admin");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
+var model_checkout = require("../models/model_checkout");
 
 router.get("/crud", function (req, res, next) {
   res.render("site/admin-crud.ejs", { user: req.session.User });
@@ -30,16 +31,20 @@ router.get("/Report_QuantityInStock", function (req, res, next) {
   res.render("site/Report_QuantityInStock.ejs", { user: req.session.User });
 });
 router.get(
-  "/Report_Product_Sold_PDF/:lm/:datefrom/:dateto",
+  "/Report_Product_Sold_PDF/:lm/:datefrom/:dateto/:datefrom1/:dateto1",
   function (req, res, next) {
     let lm = req.params.lm;
     let datefrom = req.params.datefrom;
     let dateto = req.params.dateto;
+    let datefrom1 = req.params.datefrom1;
+    let dateto1 = req.params.dateto1;
     res.render("site/product-sold-pdf.ejs", {
       user: req.session.User,
       lm: lm,
       datefrom: datefrom,
       dateto: dateto,
+      datefrom1: datefrom1,
+      dateto1: dateto1,
     });
   }
 );
@@ -208,6 +213,16 @@ router.post("/addsp", function (req, res, next) {
 router.get("/deletesp/:id", function (req, res, next) {
   db.query(
     `DELETE FROM dongruou WHERE MADONG=${req.params.id}`,
+    function (err) {
+      if (err) throw err;
+      res.redirect("/quan-tri/crud");
+    }
+  );
+});
+
+router.get("/deletespkm/:id", function (req, res, next) {
+  db.query(
+    `DELETE FROM ct_khuyenmai WHERE MADONG=${req.params.id}`,
     function (err) {
       if (err) throw err;
       res.redirect("/quan-tri/crud");
@@ -1039,6 +1054,7 @@ router.post("/nhaphang", async function (req, res, next) {
               arrimport,
               req.body.idcoupon
             );
+            let query1 = model_checkout.handleQuantity1(arrimport);
             res.redirect("/quan-tri/import_product");
           }
         );
@@ -1312,6 +1328,11 @@ router.get("/api/product_sold_pdf/:from/:to/:lm", async function (req, res) {
 
 router.get("/api/GetyearRevenue", async function (req, res) {
   let data = await modelAdmin.GetYearRevenue();
+  res.json(data);
+});
+
+router.get("/api/IDDONDATHANG", async function (req, res) {
+  let data = await modelAdmin.IDDONDATHANG();
   res.json(data);
 });
 
