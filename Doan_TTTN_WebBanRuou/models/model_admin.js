@@ -29,6 +29,21 @@ exports.listSP = () => {
   });
 };
 
+exports.listSPADDKM = () => {
+  return new Promise((hamOK, hamLoi) => {
+    let sql = `SELECT  dongruou.MADONG,dongruou.TENDONG,dongruou.GIA,dongruou.HINHANH,COALESCE(dongruou.SOLUONGTON, 0 ) as SOLUONGTON,
+      dongruou.TRANGTHAI,dongruou.MOTA,loairuou.TENLOAI,thuonghieu.TENTH 
+      FROM doantttn1.dongruou,loairuou,thuonghieu  
+      where dongruou.MALOAI = loairuou.MALOAI 
+      and dongruou.MATH = thuonghieu.MATH and dongruou.MADONG NOT IN (SELECT ct.MADONG FROM ct_khuyenmai as ct) order by MADONG`;
+    db.query(sql, (err, d) => {
+      console.log("List success");
+      dataList = d;
+      hamOK(dataList);
+    });
+  });
+};
+
 exports.listspaddkm = () => {
   return new Promise((hamOK, hamLoi) => {
     let sql =
@@ -303,7 +318,7 @@ exports.sum_revenu_year = () => {
 
 exports.sum_revenu_today = () => {
   return new Promise((hamOK, hamLoi) => {
-    let sql = `SELECT pd.MAPD,hd.THANHTIEN,ROUND(sum(hd.THANHTIEN),2) as TONG FROM phieudat as pd,hoadon as hd WHERE hd.MAPD = pd.MAPD and pd.TRANGTHAI = 'Đã giao' and  DATE_FORMAT(NOW(),'01/01/%Y')<= hd.NGAY = curdate()`;
+    let sql = `SELECT pd.MAPD,hd.THANHTIEN,ROUND(sum(hd.THANHTIEN),2) as TONG FROM phieudat as pd,hoadon as hd WHERE hd.MAPD = pd.MAPD and pd.TRANGTHAI = 'Đã giao' and  hd.NGAY = curdate()`;
     db.query(sql, (err, d) => {
       console.log("List success");
       dataList = d;

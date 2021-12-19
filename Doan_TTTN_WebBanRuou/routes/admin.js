@@ -1161,6 +1161,12 @@ router.get("/api/all-SP", async function (req, res) {
   let data = await modelAdmin.listSP();
   res.json(data);
 });
+
+router.get("/api/all-SP-KM", async function (req, res) {
+  let data = await modelAdmin.listSPADDKM();
+  res.json(data);
+});
+
 router.get("/api/all-nhanvien", async function (req, res) {
   let data = await modelAdmin.listNV();
   res.json(data);

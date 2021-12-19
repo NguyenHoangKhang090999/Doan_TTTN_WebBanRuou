@@ -230,7 +230,9 @@
                         class="addcartdetail"
                         onclick="window.alert('Đã thêm vào giỏ hàng!')"
                       >
-                        <i class="fa fa-shopping-cart"> Thêm vào giỏ</i>
+                        <i class="fa fa-shopping-cart" id="add-to-cart">
+                          Thêm vào giỏ</i
+                        >
                       </button>
                     </div>
                   </div>
@@ -720,9 +722,12 @@
       lastPrice.toFixed(2).toLocaleString("en-US") + " $";
     detailPro.innerHTML = itemPro.CHITIET;
 
-    if (itemPro.SOLUONGTON != null) {
+    if (itemPro.SOLUONGTON !== 0) {
       amountPro.innerHTML = itemPro.SOLUONGTON;
-    } else amountPro.innerHTML = 0;
+    } else {
+      amountPro.innerHTML = "Hết hàng";
+      $("#add-to-cart").css("display", "none");
+    }
 
     desProduct.innerHTML = itemPro.MOTA;
   };
