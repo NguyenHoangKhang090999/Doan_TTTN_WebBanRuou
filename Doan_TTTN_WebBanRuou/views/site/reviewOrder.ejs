@@ -35,16 +35,22 @@
 
   <body>
     <!-- Cart Start -->
-    <div class="cart-page">
-      <div class="container-fluid">
+    <div
+      class="cart-page"
+      style="margin-left: 200px; border: 1px solid grey; max-width: 1100px"
+    >
+      <div
+        class="container"
+        style="max-width: 1100px; margin: 0 auto; margin-left: 80px"
+      >
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-10">
             <div class="cart-page-inner">
-              <div class="table-responsive">
+              <div class="table">
                 <table class="table table-bordered">
                   <div class="information-Order-Detail">
                     <a href="/quan-tri/crud">Quay lại ?</a>
-                    <h2 style="margin-left: 480px; padding-top: 50px">
+                    <h2 style="margin-left: 180px; padding: 50px">
                       THÔNG TIN CHI TIẾT ĐƠN HÀNG
                     </h2>
                     <h5>HỌ VÀ TÊN NGƯỜI NHẬN</h5>
@@ -64,7 +70,7 @@
                     <h5 style="margin-left: 400px">MÃ ĐƠN HÀNG</h5>
                     <p style="margin-left: 420px"><%=data[0].MAPD%></p>
                   </div>
-                  <thead class="thead-dark" style="margin-left: 300px">
+                  <thead class="thead-dark">
                     <tr>
                       <th>Hình ảnh</th>
                       <th>Tên</th>
