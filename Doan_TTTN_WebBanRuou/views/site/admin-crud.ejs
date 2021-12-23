@@ -696,6 +696,35 @@
          </div>
       </div>
    </div>
+   <div class="modal" id="myModal11">
+    <div class="modal-dialog">
+       <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+             <h4 class="modal-title">Phân công giao hàng</h4>
+             <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="container mt-3">
+              <form action="/quan-tri/change_delivery" method="post" >
+                  <label for="maso">Mã Đơn hàng</label>
+                  <input id="id_order_rec_1" type="none" name="iddonhang" class="form-control" value="">
+                  <input type="hidden" name="idnvd" value="<%=user.id%>">
+                  <label for="maso">Nhân viên giao hàng <span style="color: red;">*</span></label><br>
+                  <select name="idnvgh" id="dropdown-nvgh1" class="combo" style="height:25px;">
+                   
+                  </select>
+                  <br>
+                  <input type="submit" value="Xác nhận" class="btn btn-primary mt-2"> <br>
+              </form>
+             </div>
+          </div>
+
+      
+       </div>
+    </div>
+ </div>
           <table class="table">
                 <thead>
                   <th>Mã</th>
@@ -1039,6 +1068,7 @@ const renderOrders = (data, id) => {
                       <td>
                         <a href="/quan-tri/review_order/${pd.MAPD}" class="btn btn-primary"><i class="fas fa-search"></i></a>
                         <a href="/quan-tri/CompleteOrder/${pd.MAPD}" class="btn btn-primary"><i class="fas fa-check-circle"></i></a>
+                        <button data-id="${pd.MAPD}" class="btn-confirm-orders btn btn-primary" data-toggle="modal" data-target="#myModal11" onclick="render_list_deli1('${pd.MAQUAN}')"><i class="fas fa-sync-alt"></i></button>
                         <a href="/quan-tri/Bill/${pd.MAPD}" class="btn btn-primary"><i class="far fa-file-alt"></i></a>
                       </td>
                     </tr>`;
@@ -1094,10 +1124,34 @@ const renderOrders = (data, id) => {
       });
   }
 
+  function render_list_deli1(dt){
+    console.log(`lay duoc district: ${dt}`)
+    let district = dt;
+      window
+      .fetch(`http://localhost:3000/quan-tri/api/listDeliById/${district}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        let id = "dropdown-nvgh1";
+    
+        dropdownlistnvgh(data, id);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
 
   $(document).on("click",".btn-confirm-orders", function () {
     const a =  $(this).attr("data-id");
     document.getElementById("id_order_rec").setAttribute("value",a);
+  });
+
+  $(document).on("click",".btn-confirm-orders", function () {
+    const a =  $(this).attr("data-id");
+    document.getElementById("id_order_rec_1").setAttribute("value",a);
   });
 
 

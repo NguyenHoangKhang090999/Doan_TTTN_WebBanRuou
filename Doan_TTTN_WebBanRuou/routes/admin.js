@@ -475,7 +475,7 @@ router.post("/them_sp_km", function (req, res, next) {
 router.get("/review_order/:id", function (req, res, next) {
   var data = db.query(
     `SELECT * FROM(SELECT ct.MAPD,count(ct.MAPD)as sl,sum(ROUND(ct.GIA*ct.SOLUONG,2))as subtotal  FROM ct_phieudat as ct WHERE ct.MAPD='${req.params.id}') as sl
-    inner join (SELECT pd.MAPD,pd.HONN,pd.TENNN,pd.DIACHINN,pd.SDTNN,pd.NGAYDAT,pd.TRANGTHAI,ct.MADONG as MD,d.TENDONG,d.HINHANH,ct.SOLUONG,ROUND(ct.GIA,2) as GIA,hd.THANHTIEN,ROUND(ct.GIA*ct.SOLUONG,2) as TONG,nv.HO as HONVGH,nv.TEN as TENNVGH,pd.GHICHU
+    inner join (SELECT pd.MAPD,pd.HONN,pd.TENNN,pd.DIACHINN,pd.SDTNN,pd.NGAYDAT,pd.TRANGTHAI,ct.MADONG as MD,d.TENDONG,d.HINHANH,ct.SOLUONG,ROUND(ct.GIA,2) as GIA,hd.THANHTIEN,ROUND(ct.GIA*ct.SOLUONG,2) as TONG,nv.HO as HONVGH,nv.TEN as TENNVGH,nv.MANV,pd.GHICHU
     FROM phieudat as pd,ct_phieudat as ct,dongruou as d,hoadon as hd,nhanvien as nv 
     WHERE pd.MAPD = ct.MAPD and nv.MANV = pd.MANVGH and d.MADONG=ct.MADONG and pd.MAPD = '${req.params.id}' and hd.MAPD = pd.MAPD) as ct on sl.MAPD = ct.MAPD`,
     function (err, result) {
@@ -574,6 +574,28 @@ router.post("/confirm_order", async function (req, res, next) {
             });
           }
         );
+      }
+    );
+  });
+});
+
+router.post("/change_delivery", async function (req, res, next) {
+  let data = await modelAdmin.listOrderDetailById(req.body.iddonhang);
+  const idbill = crypto.randomBytes(5).toString("hex");
+  db.beginTransaction(function (err) {
+    if (err) throw err;
+    //Thực thi câu lệnh thứ 1
+    db.query(
+      `UPDATE phieudat SET MANVGH='${req.body.idnvgh}' WHERE MAPD='${req.body.iddonhang}'`,
+      function (err, results) {
+        //nếu có lỗi
+        if (err) {
+          //rollback quá trình
+          return db.rollback(function () {
+            throw err;
+          });
+        }
+        res.redirect("/quan-tri/crud");
       }
     );
   });

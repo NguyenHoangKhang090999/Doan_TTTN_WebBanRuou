@@ -34,22 +34,25 @@
 
   <body>
     <!-- Cart Start -->
-    <h2 style="padding: 30px 600px; background: gray">Đơn đặt hàng</h2>
-    <div class="info-company" style="margin-left: 30px">
-      <h4>Công ty</h4>
+    <h1 style="padding: 30px 600px; background: gray">Đơn đặt hàng</h1>
+    <div class="info-company" style="margin-left: 200px">
+      <h4 style="font-weight: bold">Công ty</h4>
       <p><%=data[0].TENNCC%></p>
-      <h4>Địa chỉ</h4>
+      <h4 style="font-weight: bold">Địa chỉ</h4>
       <p><%=data[0].DIACHI%></p>
-      <h4>Email</h4>
+      <h4 style="font-weight: bold">Email</h4>
       <p><%=data[0].EMAIL%></p>
-      <h4>Số điện thoại</h4>
+      <h4 style="font-weight: bold">Số điện thoại</h4>
       <p><%=data[0].SDT%></p>
     </div>
 
-    <div class="cart-page">
-      <div class="container">
+    <div class="cart-page" style="margin-left: 200px; max-width: 1100px">
+      <div
+        class="container"
+        style="max-width: 1100px; margin: 0 auto; margin-left: 80px"
+      >
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-10">
             <div class="cart-page-inner">
               <div class="table-responsive">
                 <table class="table table-bordered">
@@ -152,6 +155,9 @@
     listidddh = data;
     console.log(data);
   });
+
+  renderFormsubmit();
+
   function checkValidateID() {
     $("#render-fault").empty();
     let id = document.myform.iddh.value;
@@ -167,7 +173,6 @@
     }
   }
 
-  renderFormsubmit();
   function rendercart(data, id) {
     $(".align-middle").empty();
 
